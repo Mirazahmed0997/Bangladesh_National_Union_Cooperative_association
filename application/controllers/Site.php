@@ -595,6 +595,10 @@ class Site extends CI_Controller
 		$data['member'] = $this->Common->get_data_single_conditional('members_n', 'id', $id)->row();
 		$this->load->view('site/members_list/member_Details', $data);
 	}
+
+
+	// ---------------------Form View-----------------
+
 	public function form_view($id)
 	{
 		$data['member'] = $this->Common->get_data_single_conditional('members_n', 'id', $id)->row();
@@ -729,7 +733,7 @@ class Site extends CI_Controller
 		$this->db->where('id', $id);
 		$this->db->update('members_n', $update_data);
 
-		redirect(base_url('site/view_member/'.$id));
+		redirect(base_url('site/view_member/' . $id));
 	}
 
 

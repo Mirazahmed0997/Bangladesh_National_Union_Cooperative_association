@@ -12,12 +12,12 @@ $route['admin_dashboard'] = 'Admin/index';
 $route['applicant_dashboard'] = 'Applicant/index';
 $route['applicant_cv'] = 'Applicant/applicant_cv_view';
 $route['members'] = 'Applicant/members_list/members_list';
-
+$route['view_member/(:id)'] = 'Site/view_member/$1';
 
 
 $route['member_registration'] = 'Site/member_application';
 $route['member_register'] = 'Site/member_application_save';
-$route['view_member/(:id)'] = 'Site/view_member/$1';
+;
 $route['form_view/(:id)'] = 'Site/form_view/$1';
 $route['edit_member/(:id)'] = 'Site/edit_member/$1';
 $route['update_member/(:id)'] = 'Site/update_member/$1';

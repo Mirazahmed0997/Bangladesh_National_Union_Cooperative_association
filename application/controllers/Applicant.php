@@ -21,7 +21,7 @@ class Applicant extends CI_Controller
 
 
 
-     // public function index()
+    // public function index()
     // {
     //     $data = $this->engine->store_nav('Nothing', 'Nothing', 'শিক্ষিত বেকার কেন্দ্রীয় সঞ্চয় ও ঋণদান সমবায় সমিতি');
 
@@ -36,29 +36,123 @@ class Applicant extends CI_Controller
 
 
     public function index()
-{
-    $data = $this->engine->store_nav('Nothing', 'Nothing', 'শিক্ষিত বেকার কেন্দ্রীয় সঞ্চয় ও ঋণদান সমবায় সমিতি');
+    {
+        $data = $this->engine->store_nav('Nothing', 'Nothing', 'শিক্ষিত বেকার কেন্দ্রীয় সঞ্চয় ও ঋণদান সমবায় সমিতি');
 
-    // Get member count
-    $data['member_count'] = $this->db->count_all('members_n');
+        // Get member count
+        $data['member_count'] = $this->db->count_all('members_n');
 
-    $path = 'applicant/dashboard';
+        $path = 'applicant/dashboard';
 
-    $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
-}
+        $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
+    }
 
 
+    // -------------------single member---------------------
+
+    public function view_member($id = null)
+    {
+        //  Redirect if no ID
+        if (empty($id)) {
+            redirect(base_url('Applicant/members_list'));
+        }
+
+        //  Set dashboard navigation & page title
+        $data = $this->engine->store_nav('members_list', 'members_list', 'সদস্য বিস্তারিত');
+
+        // Fetch the specific member
+        $data['member'] = $this->Common->get_data_single_conditional('members_n', 'id', $id)->row();
+
+        //  Check if member exists
+        if (!$data['member']) {
+            show_404(); // member not found
+        }
+
+        //  Render the member details inside dashboard layout
+        $path = 'Applicant/members_list/member_Details';
+        $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
+    }
+
+
+
+    // -------------------Form View---------------------
+
+    public function form_view($id = null)
+    {
+        //  Redirect if no ID
+        if (empty($id)) {
+            redirect(base_url('Applicant/members_list'));
+        }
+
+        //  Set dashboard navigation & page title
+        $data = $this->engine->store_nav('members_list', 'members_list', 'সদস্য বিস্তারিত');
+
+        // Fetch the specific member
+        $data['member'] = $this->Common->get_data_single_conditional('members_n', 'id', $id)->row();
+
+        //  Check if member exists
+        if (!$data['member']) {
+            show_404(); // member not found
+        }
+
+        //  Render the member details inside dashboard layout
+        $path = 'Applicant/members_list/form_view';
+        $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
+    }
 
     // ---------------------get all members-----------------
+
 
     public function members_list()
     {
         $data = $this->engine->store_nav('members_list', 'members_list', 'সদস্য তালিকা');
 
+        $where_data = array();
+
+        $id = $this->input->get('id');
+        $branch_registration_no = $this->input->get('branch_registration_no');
+        $mobile_number = $this->input->get('mobile_number');
+        $branch_name = $this->input->get('branch_name');
+        $from_date = $this->input->get('from_date');
+        $to_date = $this->input->get('to_date');
+
+
+
+        if (!empty($id)) {
+            $where_data['id'] = $id;
+        }
+
+        if (!empty($branch_registration_no)) {
+            $where_data['branch_registration_no'] = $branch_registration_no;
+        }
+
+        if (!empty($mobile_number)) {
+            $where_data['mobile_number'] = $mobile_number;
+        }
+
+        if (!empty($branch_name)) {
+            $where_data['branch_name'] = $branch_name;
+        }
+
+        // 4️⃣ Apply the filters to the query
+        if (!empty($where_data)) {
+            $this->db->where($where_data);
+        }
+
+        // 5️⃣ Apply date range filter if provided
+        if (!empty($from_date)) {
+            $this->db->where('created_at >=', $from_date);
+        }
+
+        if (!empty($to_date)) {
+            $this->db->where('created_at <=', $to_date);
+        }
+
+        // 6️⃣ Fetch filtered members
         $data['members'] = $this->db->get('members_n')->result();
 
+        // 7️⃣ Load the view
         $path = 'Applicant/members_list/members_list';
-
         $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
     }
 
@@ -66,7 +160,7 @@ class Applicant extends CI_Controller
 
 
 
-   
+
     public function applicant_cv_view()
     {
         $data = $this->engine->store_nav('applicant_cv', 'applicant_cv_view', 'শিক্ষিত বেকার কেন্দ্রীয় সঞ্চয় ও ঋণদান সমবায় সমিতি');

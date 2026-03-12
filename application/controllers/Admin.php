@@ -45,6 +45,8 @@ class Admin extends CI_Controller
 	// 	$this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
 	// }
 	public function president_list()
+	
+	
 	{
 		$data = $this->engine->store_nav('homepage', 'president_list', 'চান্দ্রা শিক্ষিত বেকার যুব বহুমূখী সমবায় সমিতি লিঃ');
 		$presidents = $this->Common->get_data_desc('president', 'id');

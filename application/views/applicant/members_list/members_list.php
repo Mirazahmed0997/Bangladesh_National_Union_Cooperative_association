@@ -5,64 +5,68 @@
     <div class="content-header">
         <div class="container-fluid">
 
-            <!-- Row 1 -->
-            <div class="row g-2 mb-2 align-items-center">
+            <form method="get" action="<?= base_url('Applicant/members_list') ?>">
+                <!-- Row 1 -->
+                <div class="row g-2 mb-2 align-items-center">
 
-                <div class="col-md-auto">
-                    <button class="btn btn-primary">সদস্য খুজুন</button>
+                    <div class="col-md-auto">
+                        <button type="button" class="btn btn-primary">সদস্য খুজুন</button>
+                    </div>
+
+                    <div class="col-md">
+                        <input type="text" name="id" value="<?= $this->input->get('id') ?>"
+                            class="form-control" placeholder="সদস্য নম্বর">
+                    </div>
+
+                    <div class="col-md">
+                        <input type="text" name="branch_registration_no" class="form-control"
+                            placeholder="সমিতির নিবন্ধন নম্বর">
+                    </div>
+
+                    <div class="col-md">
+                        <input type="text" name="mobile_number" class="form-control" placeholder="মোবাইল নম্বর">
+                    </div>
+
+                    <div class="col-md">
+                        <select name="branch_name" class="form-select">
+                            <option value="">সদস্য সমিতির নাম</option>
+
+                            <?php foreach ($members as $member): ?>
+                                <option value="<?= $member->branch_name ?>"
+                                    <?= $this->input->get('branch_name') == $member->branch_name ? 'selected' : '' ?>>
+                                    <?= $member->branch_name ?>
+                                </option>
+                            <?php endforeach; ?>
+
+                        </select>
+                    </div>
+
                 </div>
 
-                <div class="col-md">
-                    <input type="text" class="form-control" placeholder="সদস্য নম্বর">
+                <!-- Row 2 -->
+                <div class="row g-2 align-items-center">
+
+                    <div class="col-md-auto">
+                        <button type="button" class="btn btn-primary">তারিখ নির্বাচন</button>
+                    </div>
+
+                    <div class="col-md">
+                        <input type="date" name="from_date" class="form-control">
+                    </div>
+
+                    <div class="col-md">
+                        <input type="date" name="to_date" class="form-control">
+                    </div>
+
+                    <div class="col-md-auto">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+
                 </div>
 
-                <div class="col-md">
-                    <input type="text" class="form-control" placeholder="সমিতির নিবন্ধন নম্বর">
-                </div>
-
-                <div class="col-md">
-                    <input type="text" class="form-control" placeholder="মোবাইল নম্বর">
-                </div>
-
-                <div class="col-md">
-                    <select class="form-select">
-                        <option selected>সদস্য সমিতির নাম</option>
-                        <?php
-                            foreach ($members as $member) {
-                            ?>
-                               <option><?= $member->branch_name; ?></option>
-                            <?php
-                            }
-                            ?>
-                        
-                       
-                    </select>
-                </div>
-
-            </div>
-
-            <!-- Row 2 -->
-            <div class="row g-2 align-items-center">
-
-                <div class="col-md-auto">
-                    <button class="btn btn-primary">তারিখ নির্বাচন</button>
-                </div>
-
-                <div class="col-md">
-                    <input type="datetime-local" class="form-control">
-                </div>
-
-                <div class="col-md">
-                    <input type="datetime-local" class="form-control">
-                </div>
-
-                <div class="col-md-auto">
-                    <button class="btn btn-success">
-                       <i class="fas fa-search"></i> Search
-                    </button>
-                </div>
-
-            </div>
+            </form>
 
         </div>
     </div>
@@ -111,23 +115,23 @@
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td><a href="<?= base_url('Site/view_member/' . $row->id); ?>"
+                                        <td><a href="<?= base_url('Applicant/view_member/' . $row->id); ?>"
                                                 class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a></td>
                                         <td>
 
-                                            <a href="<?= base_url('Site/form_view/' . $row->id); ?>"
+                                            <a href="<?= base_url('Applicant/form_view/' . $row->id); ?>"
                                                 class="btn btn-warning btn-sm">Preview</a>
-                                            <!-- <a href="<?= base_url('Site/delete_member/' . $row->id); ?>"
+                                            <a href="<?= base_url('Site/delete_member/' . $row->id); ?>"
                                                 class="btn btn-danger btn-sm"
-                                                onclick="return confirm('Are you sure?');">Delete</a> -->
+                                                onclick="return confirm('Are you sure?');">Delete</a>
                                         </td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
                         </table>
-                    </div> 
+                    </div>
                 </div>
-            </div> 
+            </div>
 
         </div>
     </section>
