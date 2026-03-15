@@ -1,3 +1,17 @@
+<?php if ($this->session->flashdata('error')): ?>
+    <script>
+        alert("<?php echo $this->session->flashdata('error'); ?>");
+    </script>
+<?php endif; ?>
+
+<?php if ($this->session->flashdata('success')): ?>
+    <script>
+        alert("<?php echo $this->session->flashdata('success'); ?>");
+    </script>
+<?php endif; ?>
+
+
+
 <div class="form-container">
     <div class="form-header">
         <i class="fas fa-user-plus" style="font-size: 40px; color: var(--secondary);"></i>

@@ -7,31 +7,21 @@ class Applicant extends CI_Controller
     private $main_layout = 'applicant/master_layout';
     private $side_menu = 'applicant/side_menu';
     private $serverDateTime = '';
+
+
+
+
     public function __construct()
     {
         parent::__construct();
-        $date = new DateTime();
-        $this->serverDateTime = $date->format('Y-m-d H:i') . "\n";
-        if ($this->session->userdata('current_type') == 2) {
-        } else {
-            $this->session->set_flashdata('login_failed', 'Link is broken');
+
+        if (!$this->session->userdata('login_user_info_all')) {
+
+            $this->session->set_flashdata('login_failed', 'Please login first');
+
             redirect('member_login');
         }
     }
-
-
-
-    // public function index()
-    // {
-    //     $data = $this->engine->store_nav('Nothing', 'Nothing', 'শিক্ষিত বেকার কেন্দ্রীয় সঞ্চয় ও ঋণদান সমবায় সমিতি');
-
-    //     $login_user_info_all = $this->session->userdata('login_user_info_all');
-
-    //     $where_data['applicant.ap_r_candidate_id'] = $login_user_info_all->r_candidate_id;
-    //     $data['applied_list'] = $this->Common->get_data_applicant_list($where_data)->result();
-    //     $path = 'applicant/dashboard';
-    //     $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
-    // }
 
 
 
@@ -62,7 +52,7 @@ class Applicant extends CI_Controller
 
         //  Check if member exists
         if (!$data['member']) {
-            show_404(); 
+            show_404();
         }
 
         //  Render the member details inside dashboard layout
@@ -87,14 +77,14 @@ class Applicant extends CI_Controller
         $data['member'] = $this->Common->get_data_single_conditional('members_n', 'id', $id)->row();
 
         if (!$data['member']) {
-            show_404(); 
+            show_404();
         }
 
         //  Render the member details inside dashboard layout
         $path = 'Applicant/members_list/form_view';
         $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
     }
-  
+
 
     // ---------------------get all members-----------------
 
@@ -102,6 +92,16 @@ class Applicant extends CI_Controller
     public function members_list()
     {
         $data = $this->engine->store_nav('members_list', 'members_list', 'সদস্য তালিকা');
+
+        $login_user = $this->session->userdata('login_user_info_all');
+
+        if (!$login_user) {
+            redirect('member_login');
+        }
+
+
+        $this->db->where('id', $login_user->id);
+
 
         $where_data = array();
 
@@ -149,7 +149,7 @@ class Applicant extends CI_Controller
     }
 
 
-      // -------------------Update member details---------------------
+    // -------------------Update member details---------------------
 
     public function edit_member($id = null)
     {
@@ -177,14 +177,14 @@ class Applicant extends CI_Controller
     // ---------------------Delete single members-----------------
 
 
-	public function delete_member($id)
-	{
-		$this->Common->delete_data('members_n', 'id', $id);
-		redirect('members');
-	}
+    public function delete_member($id)
+    {
+        $this->Common->delete_data('members_n', 'id', $id);
+        redirect('members');
+    }
 
 
- 
+
 
 
 

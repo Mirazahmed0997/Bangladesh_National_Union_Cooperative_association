@@ -92,10 +92,14 @@
                                     <th>নিবন্ধন নম্বর</th>
                                     <th>মোবাইল</th>
                                     <th>ভর্তির তারিখ</th>
+
+
                                     <th>অনুমোদনকারী</th>
                                     <th>প্রত্যাহার তারিখ</th>
                                     <th>প্রত্যাহার অনুমোদনকারী</th>
                                     <th>অবস্থান</th>
+
+
                                     <th>খতিয়ান</th>
                                     <th>Actions</th>
                                 </tr>
@@ -108,13 +112,19 @@
                                         <td><?= $row->id; ?></td>
                                         <td><?= $row->Cooperative_association_name; ?></td>
                                         <td><?= $row->Cooperative_association_address; ?></td>
-                                        <td><?= $row->Cooperative_association_registration_date; ?></td>
+                                        <td><?= $row->Cooperative_association_registration_no; ?></td>
                                         <td><?= $row->Cooperative_association_number; ?></td>
-                                        <td><?= $row->Cooperative_association_registration_date; ?></td>
+                                        <td><?= $row->created_at; ?></td>
+
+
+                                        <td><?= $row->approved_by; ?></td>
+                                        <td><?= $row->widthdrawal_date; ?></td>
+                                        <td><?= $row->widthdrawal_approved_by; ?></td>
+                                        <td><?= $row->is_active; ?></td>
                                         <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+
+
+
                                         <td><a href="<?= base_url('Applicant/view_member/' . $row->id); ?>"
                                                 class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a></td>
                                         <td>

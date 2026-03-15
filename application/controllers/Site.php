@@ -41,7 +41,7 @@ class Site extends CI_Controller
 
 	// ---------------------create member-----------------
 
-		public function member_application()
+	public function member_application()
 	{
 		$data = $this->engine->store_nav('site', 'Nothing', 'সদস্য আবেদন ফরম');
 
@@ -52,6 +52,19 @@ class Site extends CI_Controller
 
 	public function member_application_save()
 	{
+
+		$mobile_number = $this->input->post('mobile_number');
+
+		// Check if mobile number already exists
+		$this->db->where('mobile_number', $mobile_number);
+		$existing_member = $this->db->get('members_n')->row();
+
+		if ($existing_member) {
+			$this->session->set_flashdata('error', 'ইতিমধ্যে এই নম্বর যে একজন সদস্য বিদ্যমান!');
+
+			redirect('member_registration');
+			return;
+		}
 
 		$logo = $this->upload_file('logo', './assets/uploads/project/members/logo/');
 		$document_1 = $this->upload_file('document_1', './assets/uploads/project/members/members_document/');
@@ -110,8 +123,9 @@ class Site extends CI_Controller
 		);
 
 		$this->db->insert('members_n', $data);
-
-		redirect('members');
+		$this->session->set_flashdata('success', 'অভিনন্দন, আপনার আবেদন সফলভাবে জমা দেওয়া হয়েছে।
+');
+		redirect('member_login');
 	}
 
 
@@ -195,7 +209,8 @@ class Site extends CI_Controller
 			'nomini_designation' => $this->input->post('nomini_designation'),
 			'nomini_mobile_no' => $this->input->post('nomini_mobile_no'),
 			'nomini_date' => $this->input->post('nomini_date'),
-			'password' => $this->input->post('password'),
+			'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+
 		];
 
 		// Handle file uploads
@@ -271,7 +286,7 @@ class Site extends CI_Controller
 
 
 
-	
+
 
 
 

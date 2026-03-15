@@ -12,11 +12,11 @@ class Admin extends CI_Controller
 		parent::__construct();
 		$date = new DateTime();
 		$this->serverDateTime = $date->format('Y-m-d H:i') . "\n";
-		if ($this->session->userdata('currentActiveId') == 1) {
-		} else {
-			// $this->session->set_flashdata('login_failed', 'Link is broken');
-			// redirect('admin');
-		}
+		// if ($this->session->userdata('currentActiveId') == 1) {
+		// } else {
+		// 	$this->session->set_flashdata('login_failed', 'Link is broken');
+		// 	redirect('admin');
+		// }
 	}
 
 	// public function index()
@@ -32,6 +32,51 @@ class Admin extends CI_Controller
 
 		$this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
 	}
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public function view_member($id = null)
     {

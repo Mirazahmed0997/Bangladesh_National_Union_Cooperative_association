@@ -8,7 +8,7 @@
     <div class="container job_details">
       <div class="row align-items-center">
         <div class="col-12 text-justify">
-            <form action="<?php echo base_url('member_login/login_process'); ?>" method="post">
+            <form action="<?php echo base_url('Member_login/login_process'); ?>" method="post">
                 <input type="hidden" name="userType" value="2">
                 <input type="hidden" name="login_value" value="1">
             <h1 class="text-center">Applicant Login</h1>

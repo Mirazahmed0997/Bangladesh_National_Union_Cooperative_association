@@ -158,7 +158,7 @@ class Login extends CI_Controller
 				}
 			}
 		$this->session->sess_destroy();
-		redirect('applicant_login');
+		redirect('member_login');
 	}
 	public function forgot_password() {
 		$email = $this->input->post('email');
