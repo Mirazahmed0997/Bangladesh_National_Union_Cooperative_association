@@ -94,7 +94,6 @@ class Admin_login extends CI_Controller
         } else {
 
             $this->session->set_flashdata('error', 'Mobile number not found Please Registration First');
-            // redirect('login/login');
             redirect('admin_registration_form');
         }
     }

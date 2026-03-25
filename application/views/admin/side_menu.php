@@ -7,14 +7,13 @@
     }
 </style>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
     <a href="#" class="brand-link">
 
         <span class="brand-text font-weight-light">Admin</span>
     </a>
 
     <?php $login_user_info_all = $this->session->userdata('login_user_info_all'); ?>
-    <!-- Sidebar -->
+
     <div class="sidebar">
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
@@ -131,13 +130,8 @@
                     </p>
                 </a>
 
-
-
-
                 </li>
-
-
-                <li class="nav-item has-treeview <?= active_open('applicant', $main_nav); ?>">
+                 <li class="nav-item has-treeview <?= active_open('applicant', $main_nav); ?>">
                     <a href="#" class="nav-link <?= active_nav('applicant', $main_nav); ?>">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
@@ -190,13 +184,13 @@
 
                             </a>
                         </li>
-                      
+
 
                     </ul>
                 </li>
 
 
-             
+
             </ul>
             </li>
 

@@ -66,24 +66,24 @@ class Applicant extends CI_Controller
 
     // -------------------member account details---------------------
 
-   public function members_account($id = null)
-{
-    $data = $this->engine->store_nav('members_list', 'members_list', 'সদস্য বিস্তারিত');
+    public function members_account($id = null)
+    {
+        $data = $this->engine->store_nav('members_list', 'members_list', 'সদস্য বিস্তারিত');
 
-    // OPTIONAL: comment this for now
-    // if (empty($id)) {
-    //     redirect(base_url('Applicant/members_list'));
-    // }
+        // OPTIONAL: comment this for now
+        // if (empty($id)) {
+        //     redirect(base_url('Applicant/members_list'));
+        // }
 
-    // OPTIONAL: disable DB check for now
-    // $data['member'] = ...
-    // if (!$data['member']) {
-    //     show_404();
-    // }
+        // OPTIONAL: disable DB check for now
+        // $data['member'] = ...
+        // if (!$data['member']) {
+        //     show_404();
+        // }
 
-    $path = 'applicant/members_list/members_accounts_details';
-    $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
-}
+        $path = 'applicant/members_list/members_accounts_details';
+        $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
+    }
 
 
 
@@ -196,6 +196,24 @@ class Applicant extends CI_Controller
         //  Render the member details inside dashboard layout
         $path = 'Applicant/members_list/updateForm';
         $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
+    }
+
+
+    // ---------------for payment----------
+
+    public function payment_method()
+    {
+        $id = $this->input->post('member_id');
+
+        $data = [
+            'payment_status' => 'paid',
+            'payment_year' => date('Y') 
+        ];
+
+        $this->db->where('id', $id);
+        $this->db->update('members_n', $data);
+
+        echo "success";
     }
 
 

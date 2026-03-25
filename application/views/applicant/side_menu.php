@@ -1,30 +1,15 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
     <a href="#" class="brand-link">
 
         <span class="brand-text font-weight-light">Applicant</span>
     </a>
 
 	<?php $login_user_info_all = $this->session->userdata('login_user_info_all'); ?>
-    <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <!-- <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="<?php if(!empty($login_user_info_all->r_image)){ echo base_url('assets/uploads/applicant/'.$login_user_info_all->r_image); } else { echo base_url('assets/backend/dist/img/user.jpg'); }?>" class="img-circle elevation-2" alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#" class="d-block"><?php 
-                                            echo $login_user_info_all->r_first_name.' '.$login_user_info_all->r_last_name;
-                                            ?></a>
-            </div>
-        </div> -->
-
-        <!-- Sidebar Menu -->
+      
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-					 with font-awesome or any other icon font library -->
+               
                 <li class="nav-item has-treeview menu-open">
                     <a href="<?php echo base_url('applicant_dashboard') ?>" class="nav-link <?= active_nav('dashboard', $main_nav); ?>">
                         <i class="nav-icon fas fa-tachometer-alt"></i>

@@ -60,6 +60,10 @@
                 <input type="tel" name="mobile_number" pattern="^\d{11}$" placeholder="017XXXXXXXX">
             </div>
             <div class="form-group">
+                <label>ই-মেইল</label>
+                <input type="tel" name="email"  placeholder="xxxxx@gmail.com">
+            </div>
+            <div class="form-group">
                 <label>লিঙ্গ</label>
                 <select name="gender">
                     <option value="">নির্বাচন করুন</option>

@@ -71,13 +71,19 @@
                                     <th rowspan="2">নিবন্ধন ঠিকানা</th>
                                     <th rowspan="2">নিবন্ধন নম্বর</th>
                                     <th rowspan="2">মোবাইল</th>
+                                    <th rowspan="2">ই-মেইল</th>
                                     <th rowspan="2">ভর্তির ফি</th>
+                                    <th rowspan="2">সদস্য সমিতির মোবাইল নাম্বার</th>
                                     <th rowspan="2">ভর্তির তারিখ</th>
+
+
+
                                     <th rowspan="2">চাঁদার পরিমাণ</th>
                                     <th rowspan="2">চাঁদা পরিশোধের সাল</th>
-                                    <th rowspan="2">সদস্য সমিতির মোবাইল নাম্বার</th>
-                                    <th rowspan="2">ই-মেইল</th>
+
+
                                     <th class="text-center" colspan="3">ভর্তি ইস্যুকারী স্বাক্ষর </th>
+
                                     <th rowspan="2">ব্যবস্থাপনা কমিটি অনুমোদনের তারিখ</th>
                                     <th rowspan="2">অনুমোদনকারী</th>
                                     <th rowspan="2">প্রত্যাহার তারিখ</th>
@@ -85,7 +91,7 @@
                                     <th rowspan="2">অবস্থান</th>
                                     <th rowspan="2">টাকা পরিশোধ</th>
                                     <th rowspan="2">খতিয়ান</th>
-                                    <th rowspan="3"></th>
+                                    <th rowspan="4"></th>
                                 </tr>
 
                                 <tr>
@@ -103,18 +109,22 @@
                                         <td><?= $row->Cooperative_association_name; ?></td>
                                         <td><?= $row->Cooperative_association_address; ?></td>
                                         <td><?= $row->Cooperative_association_registration_no; ?></td>
-                                        <td><?= $row->Cooperative_association_number; ?></td>
+                                        <td><?= $row->mobile_number; ?></td>
+                                        <td><?= $row->email; ?></td>
                                         <td><?= $row->payable_amount; ?></td>
+                                        <td><?= $row->Cooperative_association_number; ?></td>
                                         <td><?= $row->created_at; ?></td>
+
+
+
+                                        <td><?= $row->subscription_fee; ?></td>
+                                        <td><?= $row->payment_year; ?></td>
+
                                         <td></td>
                                         <td></td>
                                         <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><?= $row->approved_by; ?></td>
+                                        <td><?= $row->approved_date; ?></td>
+                                        <td class="font-bold"><?= $row->approved_by; ?></td>
                                         <td><?= $row->widthdrawal_date; ?></td>
                                         <td><?= $row->widthdrawal_approved_by; ?></td>
                                         <td>
@@ -125,6 +135,12 @@
                                             <?php endif; ?>
                                         </td>
                                         <td>
+                                            <a href="javascript:void(0);" class="btn btn-success btn-sm pay-now"
+                                                data-id="<?= $row->id; ?>">
+                                                <?= ($row->payment_status == 'paid') ? 'Paid' : "Pay now"; ?>
+                                            </a>
+                                        </td>
+                                        <!-- <td>
                                             <?php if ($row->payment_status == 'paid'): ?>
                                                 <span class="badge bg-success">Paid</span>
                                             <?php elseif ($row->payment_status == 'pending'): ?>
@@ -132,8 +148,8 @@
                                             <?php else: ?>
                                                 <span class="badge bg-danger">Unpaid</span>
                                             <?php endif; ?>
-                                        </td>
-                                     
+                                        </td> -->
+
                                         <td><a href="<?= base_url('members_account_details'); ?>"
                                                 class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a></td>
                                         <td>
@@ -142,7 +158,12 @@
                                                 class="btn btn-warning btn-sm">Preview</a>
                                             <a href="<?= base_url('Applicant/edit_member/' . $row->id); ?>"
                                                 class="btn btn-warning btn-sm">Update</a>
-                                           
+
+
+
+
+
+
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -156,6 +177,7 @@
 </div>
 
 <!-- Scripts -->
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
@@ -177,7 +199,39 @@
             }
         });
     });
+
+
+    // ----------------------- for payment ----------------------------//
+
+
+    $(document).on("click", ".pay-now", function () {
+        let memberId = $(this).data("id");
+
+        if (confirm("Are you sure you want to mark as PAID?")) {
+
+            $.ajax({
+                url: "<?= base_url('Applicant/payment_method'); ?>",
+                type: "POST",
+
+                data: { member_id: memberId },
+                success: function (res) {
+
+                    alert("Payment Successful!");
+
+                    $("tr[data-id='" + memberId + "'] .payment-status")
+                        .text("Paid")
+                        .removeClass("badge-danger")
+                        .addClass("badge-success");
+
+                }
+            });
+        }
+    });
+
+
+
 </script>
+
 
 
 

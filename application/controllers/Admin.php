@@ -42,7 +42,7 @@ class Admin extends CI_Controller
 		$this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
 	}
 
-// ---------------------middle ware--------------------
+	// ---------------------middle ware--------------------
 	private function require_super_admin()
 	{
 		$user = $this->session->userdata('login_user_info_all');
@@ -169,26 +169,81 @@ class Admin extends CI_Controller
 
 
 
-	  // -------------------member account details---------------------
 
-   public function members_account($id = null)
-{
-    $data = $this->engine->store_nav('members_list', 'members_list', 'সদস্য বিস্তারিত');
+	public function edit_member($id)
+	{
+		$data['member'] = $this->db->get_where('members_n', ['id' => $id])->row();
+		$this->load->view('site/members_list/updateForm', $data);
+	}
 
-    // OPTIONAL: comment this for now
-    // if (empty($id)) {
-    //     redirect(base_url('Applicant/members_list'));
-    // }
 
-    // OPTIONAL: disable DB check for now
-    // $data['member'] = ...
-    // if (!$data['member']) {
-    //     show_404();
-    // }
 
-    $path = 'admin/members_list/members_accounts_details';
-    $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
-}
+
+
+
+	public function save_charge()
+	{
+		$id = $this->input->post('member_id');
+
+		$data = [
+			'subscription_fee' => $this->input->post('subscription_fee'),
+		];
+
+		$this->db->where('id', $id);
+		$this->db->update('members_n', $data);
+
+		echo "success"; 
+	}
+
+
+	public function approval_update()
+	{
+		$id = $this->input->post('member_id');
+
+		$user = $this->session->userdata('login_user_info_all');
+
+
+		$approved_by = $user->username;
+
+		$data = [
+			'active_status' => 1,
+			'approved_by' => $approved_by,
+			'approved_date' => date('Y-m-d H:i:s')
+		];
+
+		$this->db->where('id', $id);
+		$this->db->update('members_n', $data);
+
+		echo "success";
+	}
+
+
+
+	// -------------------member account details---------------------
+
+	public function members_account($id = null)
+	{
+		$data = $this->engine->store_nav('members_list', 'members_list', 'সদস্য বিস্তারিত');
+
+		// OPTIONAL: comment this for now
+		// if (empty($id)) {
+		//     redirect(base_url('Applicant/members_list'));
+		// }
+
+		// OPTIONAL: disable DB check for now
+		// $data['member'] = ...
+		// if (!$data['member']) {
+		//     show_404();
+		// }
+
+		$path = 'admin/members_list/members_accounts_details';
+		$this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
+	}
+
+
+
+
+
 
 
 
@@ -244,7 +299,7 @@ class Admin extends CI_Controller
 
 	public function update_users_role($id)
 	{
-		$this-> require_super_admin();
+		$this->require_super_admin();
 		$users = $this->db->get_where('users', ['id' => $id])->row();
 
 		$update_data = [
@@ -317,7 +372,7 @@ class Admin extends CI_Controller
 
 	public function delete_user($id)
 	{
-		$this-> require_super_admin();
+		$this->require_super_admin();
 		$this->Common->delete_data('users', 'id', $id);
 		redirect('admin/users_list/users_details');
 	}

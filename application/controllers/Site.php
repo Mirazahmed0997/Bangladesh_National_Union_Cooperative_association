@@ -81,6 +81,7 @@ class Site extends CI_Controller
 			'nid' => $this->input->post('nid'),
 			'birth_date' => $this->input->post('birth_date'),
 			'mobile_number' => $this->input->post('mobile_number'),
+			'email' => $this->input->post('email'),
 			'gender' => $this->input->post('gender'),
 
 			'village' => $this->input->post('village'),
@@ -276,6 +277,9 @@ class Site extends CI_Controller
 
 		redirect(base_url('applicant/members_list/member_Details/' . $id));
 	}
+
+
+	
 
 
 

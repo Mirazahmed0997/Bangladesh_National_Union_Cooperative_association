@@ -22,6 +22,7 @@
                             <p><strong>NID:</strong> <?= $member->nid ?></p>
                             <p><strong>জন্ম তারিখ:</strong> <?= $member->birth_date ?></p>
                             <p><strong>মোবাইল:</strong> <?= $member->mobile_number ?></p>
+                            <p><strong>ই-মেইল:</strong> <?= $member->email ?></p>
                             <p><strong>লিঙ্গ:</strong> <?= $member->gender ?></p>
                             <p><strong>গ্রাম:</strong> <?= $member->village ?></p>
                             <p><strong>ডাকঘর:</strong> <?= $member->post ?></p>
