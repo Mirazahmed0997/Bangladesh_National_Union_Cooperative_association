@@ -61,7 +61,7 @@
             </div>
             <div class="form-group">
                 <label>ই-মেইল</label>
-                <input type="tel" name="email"  placeholder="xxxxx@gmail.com">
+                <input type="tel" name="email" placeholder="xxxxx@gmail.com">
             </div>
             <div class="form-group">
                 <label>লিঙ্গ</label>
@@ -235,6 +235,32 @@
                     </i>
                 </div>
             </div>
+
+
+
+        </div>
+
+
+        <div class="form-section-title">৫. ভর্তি ইস্যুকারী তথ্য</div>
+        <div class="grid-container">
+            <div class="form-group">
+                <label>ভর্তি ইস্যুকারী স্বাক্ষর</label>
+                <div class="file-upload">
+                    <input name="Admission_Issuer_sign" type="file" accept="image/*">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>পদবী</label>
+                <input type="text" name="Admission_Issuer_designation">
+            </div>
+
+            <div class="form-group">
+                <label>তারিখ</label>
+                <input type="date" name="Admission_Issue_date">
+            </div>
+
+
 
 
 

@@ -63,6 +63,9 @@
                     <div class="table-responsive" style="overflow:auto;">
                         <table id="membersTable" class="table table-bordered table-striped table-hover"
                             style="width:100%; white-space: nowrap;">
+                            <button onclick="window.print()" class="btn btn-success">
+                                <i class="fas fa-print"></i> Print
+                            </button>
                             <thead class="thead-dark">
                                 <tr>
                                     <th rowspan="2">ক্রমিক</th>
@@ -119,10 +122,14 @@
 
                                         <td><?= $row->subscription_fee; ?></td>
                                         <td><?= $row->payment_year; ?></td>
+                                        <td>
+                                            <img src="<?= base_url('/assets/uploads/project/members/admission_issuer_sign/' . $member->Admission_Issuer_sign) ?>"
+                                                alt="Signature" width="40">
+                                        </td>
+                                        <td><?= $row->Admission_Issuer_designation; ?></td>
+                                        <td><?= $row->Admission_Issue_date; ?></td>
 
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+
                                         <td><?= $row->approved_date; ?></td>
                                         <td class="font-bold"><?= $row->approved_by; ?></td>
                                         <td><?= $row->widthdrawal_date; ?></td>
@@ -159,10 +166,10 @@
                                             <a href="<?= base_url('Applicant/edit_member/' . $row->id); ?>"
                                                 class="btn btn-warning btn-sm">Update</a>
 
-
-
-
-
+                                            <!-- <a href="javascript:void(0);" class="btn btn-warning btn-sm open-charge-modal"
+                                                data-id="<?= $row->id; ?>">
+                                                Change Password
+                                            </a> -->
 
                                         </td>
                                     </tr>
@@ -175,6 +182,73 @@
         </div>
     </section>
 </div>
+
+
+
+
+
+
+
+<!-- ---------------------change password popup-------------------------- -->
+<div class="modal fade" id="chargeModal">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+
+            <form action="<?= base_url('Member_login/change_password'); ?>" method="post"
+                onsubmit="return validatePassword()">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Password</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label class="text-green">পাসওয়ার্ড পরিবর্তন করুন</label>
+                        <div style="position:relative;">
+                            <input type="password" name="password" id="password" class="form-control"
+                                placeholder="Enter new password">
+
+                            <i class="fa fa-eye" onclick="togglePassword('password', this)"
+                                style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer;">
+                            </i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="text-green">কন্ফার্ম পাসওয়ার্ড</label>
+                        <div style="position:relative;">
+                            <input type="password" name="confirm_password" id="confirm_password" class="form-control"
+                                placeholder="Confirm password">
+
+                            <i class="fa fa-eye" onclick="togglePassword('confirm_password', this)"
+                                style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer;">
+                            </i>
+                        </div>
+                    </div>
+
+                    <small class="text-muted">
+                        Leave blank if you don't want to change password
+                    </small>
+
+                </div>
+
+                <!-- Footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success btn-sm">Save</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
 
 <!-- Scripts -->
 
@@ -199,6 +273,45 @@
             }
         });
     });
+
+
+
+    // ------------------confirm password----------------
+
+    function validatePassword() {
+
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirm_password").value;
+
+        if (password.length < 8) {
+            alert("পাসওয়ার্ড কমপক্ষে ৮ ডিজিট হতে হবে");
+            return false;
+        }
+        if (password !== confirmPassword) {
+            alert("পাসওয়ার্ড মিলছে না!");
+            return false;
+        }
+
+
+        return true;
+    }
+
+
+    function togglePassword(fieldId, icon) {
+
+        var input = document.getElementById(fieldId);
+
+        if (input.type === "password") {
+            input.type = "text";
+            icon.classList.remove("fa-eye");
+            icon.classList.add("fa-eye-slash");
+        } else {
+            input.type = "password";
+            icon.classList.remove("fa-eye-slash");
+            icon.classList.add("fa-eye");
+        }
+
+    }
 
 
     // ----------------------- for payment ----------------------------//
@@ -228,7 +341,46 @@
         }
     });
 
+    // for popup------------------------------------------
 
+
+    $(document).on("click", ".open-charge-modal", function () {
+        let memberId = $(this).data("id");
+        let fee = $(this).data("fee");
+
+        $("#member_id").val(memberId);
+        $("#subscription_fee").val(fee);
+
+        $("#chargeModal").modal("show");
+    });
+
+
+    $("#chargeForm").submit(function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: "<?= base_url('Admin/save_charge'); ?>",
+            type: "POST",
+            data: $(this).serialize(),
+            success: function (response) {
+
+                $("#chargeModal").modal("hide");
+
+                alert("Charge updated successfully!");
+
+                location.reload();
+            }
+        });
+    });
+
+
+// ---------------pass ID to modal---------------
+
+    $(document).on('click', '.open-charge-modal', function () {
+        var id = $(this).data('id');
+        $('#member_id').val(id);
+        $('#chargeModal').modal('show');
+    });
 
 </script>
 

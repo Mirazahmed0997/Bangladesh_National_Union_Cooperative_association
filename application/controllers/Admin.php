@@ -75,7 +75,6 @@ class Admin extends CI_Controller
 			show_404(); // member not found
 		}
 
-		//  Render the member details inside dashboard layout
 		$path = 'admin/members_list/member_Details';
 		$this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
 	}

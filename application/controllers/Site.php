@@ -69,6 +69,7 @@ class Site extends CI_Controller
 		$logo = $this->upload_file('logo', './assets/uploads/project/members/logo/');
 		$document_1 = $this->upload_file('document_1', './assets/uploads/project/members/members_document/');
 		$nomini_sign = $this->upload_file('nomini_sign', './assets/uploads/project/members/nominee_sign/');
+		$Admission_Issuer_sign = $this->upload_file('Admission_Issuer_sign', './assets/uploads/project/members/admission_issuer_sign/');
 
 		$data = array(
 
@@ -116,9 +117,13 @@ class Site extends CI_Controller
 			'nomini_date' => $this->input->post('nomini_date'),
 			'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
 
+			'Admission_Issue_date' => $this->input->post('Admission_Issue_date'),
+			'Admission_Issuer_designation' => $this->input->post('Admission_Issuer_designation'),
+
 			'logo' => $logo,
 			'document_1' => $document_1,
 			'nomini_sign' => $nomini_sign,
+			'Admission_Issuer_sign' => $Admission_Issuer_sign,
 
 
 		);
@@ -177,6 +182,7 @@ class Site extends CI_Controller
 			'nid' => $this->input->post('nid'),
 			'birth_date' => $this->input->post('birth_date'),
 			'mobile_number' => $this->input->post('mobile_number'),
+			'email' => $this->input->post('email'),
 			'gender' => $this->input->post('gender'),
 
 			'village' => $this->input->post('village'),
@@ -211,6 +217,9 @@ class Site extends CI_Controller
 			'nomini_mobile_no' => $this->input->post('nomini_mobile_no'),
 			'nomini_date' => $this->input->post('nomini_date'),
 			'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+
+			'Admission_Issue_date' => $this->input->post('Admission_Issue_date'),
+			'Admission_Issuer_designation' => $this->input->post('Admission_Issuer_designation'),
 
 		];
 
@@ -272,11 +281,20 @@ class Site extends CI_Controller
 			'pdf'
 		);
 
+
+		$update_data['Admission_Issuer_sign'] = update_file(
+			'Admission_Issuer_sign',
+			'./assets/uploads/project/members/admission_issuer_sign/',
+			$member->Admission_Issuer_sign,
+			'jpg|jpeg|png'
+		);
+
 		$this->db->where('id', $id);
 		$this->db->update('members_n', $update_data);
 
 		redirect(base_url('applicant/members_list/member_Details/' . $id));
 	}
+	
 
 
 	

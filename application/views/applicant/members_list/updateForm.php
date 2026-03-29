@@ -42,6 +42,11 @@
                                 <input type="text" class="form-control" name="mobile_number"
                                     value="<?= $member->mobile_number ?>">
                             </div>
+                            <div class="col-md-4 form-group">
+                                <label>ই-মেইল</label>
+                                <input type="text" class="form-control" name="email"
+                                    value="<?= $member->email ?>">
+                            </div>
 
 
                             <div class="col-md-4 form-group">
@@ -349,6 +354,36 @@
                                         href="<?= base_url('assets/uploads/project/members/members_document/' . $member->document_1) ?>">View</a>
                                 <?php endif; ?>
 
+                            </div>
+
+                        </div>
+
+        <!-- ----------------------- addmission issuer data-------------------- -->
+
+                        <h5 class="mt-4 mb-3 text-danger">৫. ভর্তি ইস্যুকারী তথ্য</h5>
+
+                        <div class="row">
+
+                            <div class="col-md-4 form-group">
+                                <label>ভর্তি ইস্যুকারী স্বাক্ষর</label>
+                                <input type="file" class="form-control" name="Admission_Issuer_sign">
+
+                                <?php if ($member->logo): ?>
+                                    <img src="<?= base_url('/assets/uploads/project/members/admission_issuer_sign/' . $member->Admission_Issuer_sign) ?>"
+                                        width="60">
+                                <?php endif; ?>
+                            </div>
+
+                            <div class="col-md-3 form-group">
+                                <label>পদবী</label>
+                                <input type="text" class="form-control" name="Admission_Issuer_designation"
+                                    value="<?= $member->Admission_Issuer_designation ?>">
+                            </div>
+
+                             <div class="col-md-4 form-group">
+                                <label>ইস্যুর তারিখ</label>
+                                <input type="date" class="form-control" name="Admission_Issue_date"
+                                    value="<?= $member->Admission_Issue_date ?>">
                             </div>
 
                         </div>

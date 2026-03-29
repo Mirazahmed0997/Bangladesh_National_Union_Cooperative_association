@@ -33,6 +33,13 @@ $route['members_account_details_admin'] = 'Admin/members_account';
 
 
 
+$route['news_list'] = 'news_notice_management/news_list';
+$route['update_news_status/(:num)'] = 'news_notice_management/news_active_status/$1';
+$route['delete_news/(:num)'] = 'news_notice_management/delete_news/$1';
+
+
+
+$route['view_all_news'] = 'View_content_controller/view_news';
 
 
 
@@ -43,8 +50,7 @@ $route['member_registration'] = 'Site/member_application';
 $route['member_register'] = 'Site/member_application_save';
 $route['member_login'] = 'Member_login/index';
 $route['member_logout'] = 'Member_login/logout';
-
-// $route['applicant_login'] = 'Member_login/index';
+$route['change_password/(:id)'] = 'Member_login/change_password/$1';
 
 
 
@@ -61,8 +67,9 @@ $route['members_account_details'] = 'Applicant/members_account';
 $route['update_member/(:id)'] = 'Site/update_member/$1';
 
 
+// ---------------------managment details-------------------
 
-
+// $route['management_details'] = 'Applicant/members_account';
 
 
 

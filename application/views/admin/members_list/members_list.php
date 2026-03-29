@@ -59,10 +59,19 @@
                 <div class="card-header bg-primary text-white">
                     <h5 class="mb-0 text-center">সদস্য তালিকা</h5>
                 </div>
+
+
+
+
                 <div class="card-body p-2">
                     <div class="table-responsive" style="overflow:auto;">
                         <table id="membersTable" class="table table-bordered table-striped table-hover"
                             style="width:100%; white-space: nowrap;">
+
+                            <button onclick="window.print()" class="btn btn-success ">
+                                <i class="fas fa-print"></i> Print
+                            </button>
+
                             <thead class="thead-dark">
                                 <tr>
                                     <th rowspan="2">ক্রমিক</th>
@@ -115,7 +124,10 @@
                                         <td><?= $row->subscription_fee; ?></td>
                                         <td><?= $row->payment_year; ?></td>
 
-                                        <td></td>
+                                        <td>
+                                            <img src="<?= base_url('/assets/uploads/project/members/admission_issuer_sign/' . $member->Admission_Issuer_sign) ?>"
+                                                alt="Signature" width="40">
+                                        </td>
                                         <td></td>
                                         <td></td>
                                         <td><?= $row->approved_date; ?></td>
@@ -143,7 +155,7 @@
                                         <td>
                                             <a href="<?= base_url('Admin/view_member/' . $row->id); ?>"
                                                 class="btn btn-success btn-sm">Details</a>
-                                                
+
                                             <a href="<?= base_url('Admin/form_view/' . $row->id); ?>"
                                                 class="btn btn-warning btn-sm">Preview</a>
 
@@ -266,7 +278,7 @@
 
                 $("#chargeModal").modal("hide");
 
-                alert("✅ Charge updated successfully!");
+                alert("Charge updated successfully!");
 
                 location.reload();
             }

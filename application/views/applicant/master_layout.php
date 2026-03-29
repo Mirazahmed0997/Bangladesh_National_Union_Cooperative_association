@@ -11,11 +11,13 @@
 	<!-- Ionicons -->
 	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<!--	<link rel="stylesheet" href="--><?php //echo base_url('') 
-											?>
+	?>
 	<!--assets/backend/css/ionicons.min.css">-->
 	<!-- DataTables -->
-	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+	<link rel="stylesheet"
+		href="<?php echo base_url('') ?>assets/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet"
+		href="<?php echo base_url('') ?>assets/backend/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 	<!-- Theme style -->
 	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/dist/css/adminlte.min.css">
 	<!-- Google Font: Source Sans Pro -->
@@ -30,30 +32,36 @@
 	<!-- Ionicons -->
 	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	<!-- Tempusdominus Bbootstrap 4 -->
-	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+	<link rel="stylesheet"
+		href="<?php echo base_url('') ?>assets/backend/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
 	<!-- iCheck -->
-	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+	<link rel="stylesheet"
+		href="<?php echo base_url('') ?>assets/backend/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
 	<!-- JQVMap -->
 	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/plugins/jqvmap/jqvmap.min.css">
 	<!-- Theme style -->
 	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/dist/css/adminlte.min.css">
 	<!-- overlayScrollbars -->
-	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+	<link rel="stylesheet"
+		href="<?php echo base_url('') ?>assets/backend/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
 	<!-- Daterange picker -->
 	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/plugins/daterangepicker/daterangepicker.css">
 	<!-- summernote -->
 	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/plugins/summernote/summernote-bs4.css">
 	<!-- Select2 -->
 	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/plugins/select2/css/select2.min.css">
-	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+	<link rel="stylesheet"
+		href="<?php echo base_url('') ?>assets/backend/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 	<!-- Bootstrap4 Duallistbox -->
-	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
+	<link rel="stylesheet"
+		href="<?php echo base_url('') ?>assets/backend/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
 	<!-- Theme style -->
 	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/dist/css/adminlte.min.css">
 	<!--custom css-->
 	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/css/custom.css">
 	<!-- SweetAlert2 -->
-	<link rel="stylesheet" href="<?php echo base_url('') ?>assets/backend/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+	<link rel="stylesheet"
+		href="<?php echo base_url('') ?>assets/backend/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
 	<!-- Google Font: Source Sans Pro -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 	<link href="<?php echo base_url('') ?>assets/backend/css/family.css" rel="stylesheet">
@@ -89,15 +97,21 @@
 				<!-- Notifications Dropdown Menu -->
 
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle accounts_profile" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Accounts</a>
+					<a class="nav-link dropdown-toggle accounts_profile" data-toggle="dropdown" href="#" role="button"
+						aria-haspopup="true" aria-expanded="false">Accounts</a>
 					<div class="dropdown-menu accounts_profile_menu">
 						<?php if (!empty($login_user_info_all->e_image)) { ?>
-							<a class="dropdown-item  middle-align" href="<?php echo base_url('project/authority/Accountant_2/employee_info_view/' . $login_user_info_all->e_a_id) ?>"><img src="<?php if (!empty($login_user_info_all->e_image)) {
-																																																	echo base_url('assets/uploads/employee/' . $login_user_info_all->e_image);
-																																																} else {
-																																																	echo base_url('assets/backend/dist/img/user.jpg');
-																																																} ?>" style="height:15px;width:15px;" class="img-circle elevation-2" alt="User Image"> Profile</a>
-						<?php } ?><a class="dropdown-item middle-align" href="<?php echo base_url('member_logout') ?>"><i class="fa fa-power-off" style="color:red"></i> Logout</a>
+							<a class="dropdown-item  middle-align"
+								href="<?php echo base_url('project/authority/Accountant_2/employee_info_view/' . $login_user_info_all->e_a_id) ?>">
+								<img
+									src="<?php if (!empty($login_user_info_all->e_image)) {
+										echo base_url('assets/uploads/employee/' . $login_user_info_all->e_image);
+									} else {
+										echo base_url('assets/backend/dist/img/user.jpg');
+									} ?>" style="height:15px;width:15px;" class="img-circle elevation-2" alt="User Image"> Profile</a>
+						<?php } ?><a class="dropdown-item middle-align"
+							href="<?php echo base_url('member_logout') ?>"><i class="fa fa-power-off"
+								style="color:red"></i> Logout</a>
 					</div>
 				</li>
 				<!-- <li class="nav-item">
@@ -158,20 +172,25 @@
 	<script src="<?php echo base_url('') ?>assets/backend/plugins/moment/moment.min.js"></script>
 	<script src="<?php echo base_url('') ?>assets/backend/plugins/daterangepicker/daterangepicker.js"></script>
 	<!-- Tempusdominus Bootstrap 4 -->
-	<script src="<?php echo base_url('') ?>assets/backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+	<script
+		src="<?php echo base_url('') ?>assets/backend/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 	<!-- Summernote -->
 	<script src="<?php echo base_url('') ?>assets/backend/plugins/summernote/summernote-bs4.min.js"></script>
 	<!-- overlayScrollbars -->
-	<script src="<?php echo base_url('') ?>assets/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+	<script
+		src="<?php echo base_url('') ?>assets/backend/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 	<!-- AdminLTE App -->
 	<script src="<?php echo base_url('') ?>assets/backend/dist/js/adminlte.js"></script>
 
 	<!-- SweetAlert2 -->
 
 	<script src="<?php echo base_url('') ?>assets/backend/plugins/datatables/jquery.dataTables.min.js"></script>
-	<script src="<?php echo base_url('') ?>assets/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-	<script src="<?php echo base_url('') ?>assets/backend/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-	<script src="<?php echo base_url('') ?>assets/backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+	<script
+		src="<?php echo base_url('') ?>assets/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+	<script
+		src="<?php echo base_url('') ?>assets/backend/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+	<script
+		src="<?php echo base_url('') ?>assets/backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 
 	<!-- Our Used JS  -->
 	<script src="<?php echo base_url('') ?>assets/backend/plugins/sweetalert2/sweetalert2.min.js"></script>
@@ -180,7 +199,7 @@
 	<script src="<?php echo base_url() ?>assets/backend/plugins/summernote/summernote-bs4.min.js"></script>
 
 	<script>
-		$(function() {
+		$(function () {
 			$("#example1").DataTable({
 				"responsive": true,
 				"autoWidth": false,
@@ -202,7 +221,7 @@
 		});
 	</script>
 	<script>
-		$(function() {
+		$(function () {
 			//Initialize Select2 Elements
 			$('.select2').select2()
 
@@ -238,18 +257,18 @@
 			})
 			//Date range as a button
 			$('#daterange-btn').daterangepicker({
-					ranges: {
-						'Today': [moment(), moment()],
-						'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-						'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-						'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-						'This Month': [moment().startOf('month'), moment().endOf('month')],
-						'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-					},
-					startDate: moment().subtract(29, 'days'),
-					endDate: moment()
+				ranges: {
+					'Today': [moment(), moment()],
+					'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+					'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+					'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+					'This Month': [moment().startOf('month'), moment().endOf('month')],
+					'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
 				},
-				function(start, end) {
+				startDate: moment().subtract(29, 'days'),
+				endDate: moment()
+			},
+				function (start, end) {
 					$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
 				}
 			)
@@ -267,18 +286,18 @@
 			//color picker with addon
 			$('.my-colorpicker2').colorpicker()
 
-			$('.my-colorpicker2').on('colorpickerChange', function(event) {
+			$('.my-colorpicker2').on('colorpickerChange', function (event) {
 				$('.my-colorpicker2 .fa-square').css('color', event.color.toString());
 			});
 
-			$("input[data-bootstrap-switch]").each(function() {
+			$("input[data-bootstrap-switch]").each(function () {
 				$(this).bootstrapSwitch('state', $(this).prop('checked'));
 			});
 
 		})
 	</script>
 	<script>
-		$(function() {
+		$(function () {
 			// Summernote
 			$('.textarea').summernote()
 		})

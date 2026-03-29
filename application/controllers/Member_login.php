@@ -47,7 +47,7 @@ class Member_login extends CI_Controller
 
             if (password_verify($password, $user->password))
             // if ($password == $user->password)
-            {
+                 {
 
                 $this->session->set_userdata('current_type', 2);
                 $this->session->set_userdata('login_user_info_all', $user);
@@ -66,6 +66,25 @@ class Member_login extends CI_Controller
             $this->session->set_flashdata('login_failed', 'Mobile number not found');
             redirect('member_login');
         }
+    }
+
+
+
+    public function change_password($id)
+    {
+        $id = $this->input->post('member_id');
+        $password = $this->input->post('password');
+
+        if (!empty($password)) {
+            $update_data = [
+                'password' => password_hash($password, PASSWORD_DEFAULT)
+            ];
+
+            $this->db->where('id', $id);
+            $this->db->update('members_n', $update_data);
+        }
+
+        redirect(base_url('applicant/members_list/member_Details/' . $id));
     }
 
 
