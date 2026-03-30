@@ -71,13 +71,7 @@
             <p class="designation">Designer</p>
             <p class="details">Emily crafts beautiful and intuitive UI/UX designs.</p>
         </div>
-        <div class="employee-card">
-            <img src="https://img3.stockfresh.com/files/k/kraska/m/97/808337_stock-photo-user-icon.jpg"
-                alt="Emily White">
-            <h3>Emily White</h3>
-            <p class="designation">Designer</p>
-            <p class="details">Emily crafts beautiful and intuitive UI/UX designs.</p>
-        </div>
+
     </div>
 </div>
 
@@ -86,20 +80,25 @@
     .employees {
         flex: 1 1 55%;
         text-align: center;
+        padding: 10px;
+        /* border-top: 1px solid lightblue; */
+        /* box-shadow: 10px 10px 10px lightblue; */
+        box-shadow: 10px 10px 18px rgba(0, 0, 0, 0.12);
+
     }
 
     .employees h2 {
         font-size: 1.8rem;
         color: #333;
         margin-bottom: 20px;
+
+
     }
 
     .employee-cards {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-
-
         max-height: 800px;
         overflow-y: auto;
         padding-right: 10px;

@@ -63,6 +63,14 @@
 
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('slider_list') ?>"
+                                class="nav-link <?= active_nav('applicant_pending_list', $sub_nav); ?>">
+                                <i class="fas fa-newspaper nav-icon"></i>
+                                <p>স্লাইডার ব্যবস্থাপনা</p>
+
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

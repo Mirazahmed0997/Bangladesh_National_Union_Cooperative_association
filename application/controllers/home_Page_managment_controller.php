@@ -1,0 +1,247 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class home_Page_managment_controller extends CI_Controller
+{
+
+    private $main_layout = 'admin/master_layout';
+    private $side_menu = 'admin/side_menu';
+    private $serverDateTime = '';
+    public function __construct()
+    {
+        parent::__construct();
+        $date = new DateTime();
+        $this->serverDateTime = $date->format('Y-m-d H:i') . "\n";
+        // Check if user is logged in
+        $user = $this->session->userdata('login_user_info_all');
+        if (!$user) {
+            $this->session->set_flashdata('login_failed', 'Please login first');
+            redirect('admin');
+            return;
+        }
+
+        // Check role
+        if (!in_array($user->role, ['admin', 'super_admin'])) {
+            $this->session->set_flashdata('error', 'আপনার এই পৃষ্ঠাটি অ্যাক্সেস করার অনুমতি নেই। অনুগ্রহ করে আপনার অ্যাডমিন ক্রেডেনশিয়াল দিয়ে লগইন করুন।');
+            redirect('admin');
+            return;
+        }
+
+    }
+
+
+
+    //   ---------------------------- function for file/image uploads------------------
+
+
+    private function upload_file($field_name, $file_path)
+    {
+        $config['upload_path'] = $file_path;
+        $config['allowed_types'] = 'jpg|jpeg|png|pdf';
+        $config['max_size'] = 2048;
+        $config['encrypt_name'] = TRUE;
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+        if ($this->upload->do_upload($field_name)) {
+            $data = $this->upload->data();
+            return $data['file_name'];
+        } else {
+            return '';
+        }
+    }
+
+
+    // -------------------create_slider------------
+    public function create_slider()
+    {
+        $user = $this->session->userdata('login_user_info_all');
+        $posted_by = $user->username;
+
+        $image = $this->upload_file('image', './assets/uploads/project/slider_image/');
+
+
+        $data = array(
+
+            'title' => $this->input->post('title'),
+            'posted_by' => $posted_by,
+            'image' => $image,
+        );
+
+        $this->db->insert('image_slider', $data);
+        $this->session->set_flashdata('success', 'Post created successfully!');
+        redirect('slider_list');
+    }
+
+
+
+
+
+    // -----------------------all slider_list---------------
+
+
+    public function slider_list()
+    {
+        $data = $this->engine->store_nav('news', 'news', 'সংবাদ');
+
+        $where_data = array();
+
+        $id = $this->input->get('id');
+        $title = $this->input->get('title');
+        $image = $this->input->get('image');
+        $created_at = $this->input->get('created_at');
+        $posted_by = $this->input->get('posted_by');
+
+
+
+        if (!empty($id)) {
+            $where_data['id'] = $id;
+        }
+
+        if (!empty($title)) {
+            $where_data['title'] = $title;
+        }
+
+        if (!empty($posted_by)) {
+            $where_data['posted_by'] = $posted_by;
+        }
+
+        if (!empty($where_data)) {
+            $this->db->where($where_data);
+        }
+        if (!empty($from_date)) {
+            $this->db->where('created_at >=', $from_date);
+        }
+
+        if (!empty($to_date)) {
+            $this->db->where('created_at <=', $to_date);
+        }
+
+        if (!empty($posted_by)) {
+            $where_data['posted_by'] = $posted_by;
+        }
+
+        $data['image_slider'] = $this->db->get('image_slider')->result();
+
+        $path = 'admin/slider_table/slider_table';
+
+        $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
+    }
+
+
+    // ------------single slide----------
+    public function single_slider($id = null)
+    {
+        // Redirect if no ID
+        if (empty($id)) {
+            redirect(base_url('slider_list'));
+        }
+
+        $data = $this->engine->store_nav('image_slider', 'image_slider', 'স্লাইডার ');
+
+        // Fetch the specific news
+        $data['single_slider'] = $this->Common->get_data_single_conditional('image_slider', 'id', $id)->row();
+
+        // Check if news exists
+        if (!$data['single_slider']) {
+            show_404();
+        }
+
+        $path = 'admin/slider_table/slider_table';
+        $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
+    }
+
+
+    public function slider_active_status($id)
+    {
+        $image_slider = $this->db->get_where('image_slider', ['id' => $id])->row();
+
+        $update_data = [
+
+            'status' => $this->input->post('status'),
+        ];
+
+
+        $this->db->where('id', $id);
+        $this->db->update('image_slider', $update_data);
+
+        redirect(base_url('slider_list'));
+    }
+
+
+    public function update_slider()
+    {
+       $id = $this->input->post('slider_id');
+       $slider = $this->db->get_where('image_slider', ['id' => $id])->row();
+
+        $update_data = [
+            'title' => $this->input->post('title'),
+        ];
+
+        // Handle file uploads
+
+
+        function update_file($field_name, $upload_path, $old_file = '', $allowed_types = '*')
+        {
+            $CI =& get_instance();
+
+            if (!empty($_FILES[$field_name]['name'])) {
+
+                $config['upload_path'] = $upload_path;
+                $config['allowed_types'] = $allowed_types;
+                $config['file_name'] = time() . '_' . $_FILES[$field_name]['name'];
+
+                $CI->load->library('upload');
+                $CI->upload->initialize($config);
+
+                if ($CI->upload->do_upload($field_name)) {
+
+                    $uploadData = $CI->upload->data();
+                    $new_file = $uploadData['file_name'];
+
+                    // delete old file
+                    if (!empty($old_file) && file_exists($upload_path . $old_file)) {
+                        unlink($upload_path . $old_file);
+                    }
+
+                    return $new_file;
+                }
+            }
+
+            return $old_file;
+        }
+
+        $update_data['image'] = update_file(
+            'image',
+            './assets/uploads/project/slider_image/',
+            $slider->image,
+            'jpg|jpeg|png'
+        );
+
+
+
+        $this->db->where('id', $id);
+        $this->db->update('image_slider', $update_data);
+
+        redirect(base_url('slider_list'));
+    }
+
+
+    public function delete_slider($id)
+    {
+        $this->Common->delete_data('image_slider', 'id', $id);
+        redirect('slider_list');
+    }
+
+
+
+
+
+
+
+
+
+
+
+}

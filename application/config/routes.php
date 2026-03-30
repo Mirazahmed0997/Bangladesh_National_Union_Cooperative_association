@@ -32,15 +32,28 @@ $route['members_account_details_admin'] = 'Admin/members_account';
 
 
 
-
+// -----------------------News managment------------------------
+// -----------------------for Admin view---------------
 $route['news_list'] = 'news_notice_management/news_list';
 $route['update_news_status/(:num)'] = 'news_notice_management/news_active_status/$1';
 $route['delete_news/(:num)'] = 'news_notice_management/delete_news/$1';
 
-
+// --------------for user view-----------------
 
 $route['view_all_news'] = 'View_content_controller/view_news';
+$route['company_details'] = 'View_content_controller/details_description';
 $route['news_details/(:num)'] = 'View_content_controller/news_details/$1';
+
+
+
+// ---------------------Slider managment----------------------
+
+
+$route['slider_list'] = 'home_Page_managment_controller/slider_list';
+$route['update_slider_status/(:num)'] = 'home_Page_managment_controller/slider_active_status/$1';
+$route['delete_slider/(:num)'] = 'home_Page_managment_controller/delete_slider/$1';
+
+
 
 
 
@@ -65,7 +78,6 @@ $route['view_member/(:id)'] = 'Applicant/view_member/$1';
 $route['edit_member/(:id)'] = 'Applicant/edit_member/$1';
 $route['delete_member/(:id)'] = 'Applicant/delete_member/$1';
 $route['members_account_details'] = 'Applicant/members_account';
-
 $route['update_member/(:id)'] = 'Site/update_member/$1';
 
 

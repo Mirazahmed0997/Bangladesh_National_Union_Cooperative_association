@@ -256,10 +256,6 @@ class Site extends CI_Controller
 			return $old_file;
 		}
 
-
-
-
-
 		$update_data['logo'] = update_file(
 			'logo',
 			'./assets/uploads/project/members/logo/',

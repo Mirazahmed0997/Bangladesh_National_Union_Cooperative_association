@@ -11,7 +11,11 @@ class View_content_controller extends CI_Controller
     }
 
 
+  
+
+
     // -----------all active new--------
+
     public function get_active_news()
     {
         $data['news'] = $this->db->order_by('created_at', 'DESC')
@@ -22,24 +26,56 @@ class View_content_controller extends CI_Controller
         return $data['news'];
     }
 
-// -------------------newa details------------
+    // -------------------newa details------------
     public function news_details($id = null)
-{
-    if (!$id) {
-        show_404();
+    {
+        if (!$id) {
+            show_404();
+        }
+
+        $data['news'] = $this->db->where('id', $id)
+            ->where('status', 1) // only active news
+            ->get('news')
+            ->row_array();
+
+        if (!$data['news']) {
+            show_404();
+        }
+
+        $this->load->view('site/pages/news_details', $data);
     }
 
-    $data['news'] = $this->db->where('id', $id)
-                              ->where('status', 1) // only active news
-                              ->get('news')
-                              ->row_array();
 
-    if (!$data['news']) {
-        show_404();
+    public function details_description()
+    {
+        $this->load->view('site/pages/company_details/details_description');
     }
 
-    $this->load->view('site/pages/news_details', $data);
-}
+
+
+     // -----------all active slider--------
+
+    public function get_active_slider()
+    {
+        $data['image_slider'] = $this->db->order_by('created_at', 'DESC')
+            ->where('status', 1)
+            ->get('image_slider')
+            ->result_array();
+
+        return $data['image_slider'];
+    }
+
+
+
+  
+
+
+
+
+
+
+
+
 }
 
 
