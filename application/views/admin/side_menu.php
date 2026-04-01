@@ -56,7 +56,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?php echo base_url('admin/members_list/members_list') ?>"
+                            <a href="<?php echo base_url('notice_list') ?>"
                                 class="nav-link <?= active_nav('applicant_pending_list', $sub_nav); ?>">
                                 <i class="fas fa-newspaper nav-icon"></i>
                                 <p>নোটিশ</p>

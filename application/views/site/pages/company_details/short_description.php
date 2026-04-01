@@ -1,10 +1,120 @@
-<div class="company-description">
+<link href="https://fonts.maateen.me/noto-sans-bengali/font.css" rel="stylesheet">
+
+<section class="about-section company-description">
+
+    <h2 class="section-title">
+        সমিতির সংক্ষিপ্ত পরিচিতি ও কার্যক্রম:
+    </h2>
+
+    <div class="about-card">
+        <p>
+            ‘The Bengal Co-operative Societies Act, 1940’ এবং ‘The Bengal Co-operative Societies Rules, 1942’ এর বিধান
+            অনুসারে ১৬ জুন, ১৯৬১ তারিখে নিবন্ধন নং-৩৪ সমবায় অধিদপ্তর হতে ‘পূর্ব পাকিস্তান সমবায় ইউনিয়ন’ নামে নিবন্ধন
+            লাভ করে। পরবর্তীতে সমবায় সমিতি অধ্যাদেশ, ১৯৮৫ এর বিধানের আলোকে ০৬ নভেম্বর, ১৯৮৬ তারিখে উপবিধি সংশোধনের
+            মাধ্যমে ‘বাংলাদেশ জাতীয় সমবায় ইউনিয়ন’ নামে কার্যক্রম পরিচালনা করছে। সমবায় সমিতি আইন, ২০০১ (সংশোধিত, ২০০২
+            ও ২০১৩) এবং সমবায় সমিতি বিধিমালা, ২০০৪ (সংশোধিত, ২০২০) এর আলোকে ইউনিয়নের উপ-আইন পুনরায় সংশোধনের উদ্যোগ
+            গ্রহণ করা হয়। সমবায় অধিদপ্তরের নিবন্ধন নং-সম-১০৩ তারিখ: ০৩/০১/২০২৫ মূলে সংশোধিত উপ-আইন অনুমোদন লাভ করে।
+            সংশোধিত উপ-আইন অনুযায়ী বর্তমানে বাংলাদেশ জাতীয় সমবায় ইউনিয়নের কর্ম এলাকা ও সদস্য নিবন্ধন এলাকা সমগ্র
+            বাংলাদেশ।....
+        </p>
+
+
+
+        <a href="company_details" class="btn-learn-more">বিস্তারিত পড়ুন</a>
+    </div>
+
+</section>
+
+<style>
+    body {
+        font-family: 'Noto Sans Bengali', Arial, sans-serif;
+        background: #f2f2f2;
+    }
+
+    .about-section {
+        max-width: 900px;
+        margin: 20px auto;
+    }
+
+    .section-title {
+        background: #7a1c87;
+        color: #fff;
+        padding: 14px;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 6px 6px 0 0;
+    }
+
+    /* CARD */
+    .about-card {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    /* PARAGRAPH */
+    .about-card p {
+        font-size: 16px;
+        /* 🔥 perfect readable size */
+        line-height: 1.9;
+        /* 🔥 important for Bangla */
+        color: #0b5ed7;
+        text-align: justify;
+        margin-bottom: 15px;
+    }
+
+    /* SUB BOX */
+    .sub-box {
+        background: #5faeb3;
+        padding: 10px;
+        text-align: center;
+        margin: 15px 0;
+        border-radius: 4px;
+    }
+
+    .sub-box h3 {
+        margin: 0;
+        font-size: 17px;
+        color: #000;
+        font-weight: 600;
+    }
+
+    /* READ MORE */
+    .read-more {
+        display: inline-block;
+        margin-top: 10px;
+        color: #0b5ed7;
+        text-decoration: none;
+        font-size: 15px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 18px;
+        }
+
+        .about-card p {
+            font-size: 15px;
+            line-height: 1.8;
+        }
+    }
+</style>
+
+
+
+
+
+
+<!-- <div class="company-description">
     <h2>বাংলাদেশ সমবায় ইউনিয়নের সংক্ষিপ্ত পরিচিতি</h2>
     <p>
-        ‘The Bengal Co-operative Societies Act, 1940’ এবং ‘The Bengal Co-operative Societies Rules, 1942’ এর বিধান অনুসারে ১৬ জুন, ১৯৬১ তারিখে নিবন্ধন নং-৩৪ সমবায় অধিদপ্তর হতে ‘পূর্ব পাকিস্তান সমবায় ইউনিয়ন’ নামে নিবন্ধন লাভ করে। পরবর্তীতে সমবায় সমিতি অধ্যাদেশ, ১৯৮৫ এর বিধানের আলোকে ০৬ নভেম্বর, ১৯৮৬ তারিখে উপবিধি সংশোধনের মাধ্যমে ‘বাংলাদেশ জাতীয় সমবায় ইউনিয়ন’ নামে কার্যক্রম পরিচালনা করছে। সমবায় সমিতি আইন, ২০০১ (সংশোধিত, ২০০২ ও ২০১৩) এবং সমবায় সমিতি বিধিমালা, ২০০৪ (সংশোধিত, ২০২০) এর আলোকে ইউনিয়নের উপ-আইন পুনরায় সংশোধনের উদ্যোগ গ্রহণ করা হয়। সমবায় অধিদপ্তরের নিবন্ধন নং-সম-১০৩ তারিখ: ০৩/০১/২০২৫ মূলে সংশোধিত উপ-আইন অনুমোদন লাভ করে। সংশোধিত উপ-আইন অনুযায়ী বর্তমানে বাংলাদেশ জাতীয় সমবায় ইউনিয়নের কর্ম এলাকা ও সদস্য নিবন্ধন এলাকা সমগ্র বাংলাদেশ।....
+       
 
     </p>
-    <a href="company_details" class="btn-learn-more">বিস্তারিত পড়ুন</a>
+    
 
 </div>
 
@@ -70,101 +180,4 @@
         color: #fff;
         transform: translateY(-2px);
     }
-</style>
-
-
-
-
-
-
-
-<!-- <div class="company-wrapper">
-
-    <div class="company-card">
-
-        <h2>বাংলাদেশ সমবায় ইউনিয়নের সংক্ষিপ্ত পরিচিতি</h2>
-
-        <p>
-            আমরা একটি দূরদর্শী প্রতিষ্ঠান, যা উদ্ভাবনী সমাধান এবং ব্যতিক্রমী পরিষেবা প্রদানে প্রতিশ্রুতিবদ্ধ।
-            একদল উদ্যমী পেশাদারের মাধ্যমে আমরা আমাদের গ্রাহকদের দক্ষতার সাথে ও টেকসইভাবে তাদের লক্ষ্য অর্জনে সহায়তা করি।
-            আমরা একটি দূরদর্শী প্রতিষ্ঠান, যা উদ্ভাবনী সমাধান এবং ব্যতিক্রমী পরিষেবা প্রদানে প্রতিশ্রুতিবদ্ধ।
-        </p>
-
-        <a href="<?= base_url('company_details'); ?>" class="btn-learn-more">
-            বিস্তারিত পড়ুন
-        </a>
-
-    </div>
-
-</div>
-
-
-<style>
-.company-wrapper {
-    background: linear-gradient(90deg, #32aaba, #feb47b);
-    padding: 60px 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.company-card {
-    background: #fff;
-    max-width: 800px;
-    width: 100%;
-    padding: 40px 35px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-}
-
-.company-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-}
-
-.company-card h2 {
-    font-size: 26px;
-    color: #222;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.company-card p {
-    font-size: 16px;
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 30px;
-    text-align: justify;
-}
-
-.btn-learn-more {
-    display: inline-block;
-    background: #32aaba;
-    color: #fff;
-    padding: 12px 30px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.btn-learn-more:hover {
-    background: #feb47b;
-    transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-    .company-card {
-        padding: 25px 20px;
-    }
-
-    .company-card h2 {
-        font-size: 22px;
-    }
-
-    .company-card p {
-        font-size: 15px;
-    }
-}
 </style> -->

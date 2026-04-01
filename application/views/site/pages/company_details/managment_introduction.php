@@ -5,11 +5,10 @@ $managment_info = $this->db->order_by('id', 'asc')
 ?>
 
 <div class="employees">
-    <h2>ব্যবস্থাপনা কমিটি</h2>
+    <h2 class="section-title">
+        ব্যবস্থাপনা কমিটি
+    </h2>
     <div class="employee-cards">
-
-
-
         <?php if (!empty($managment_info)): ?>
             <?php foreach ($managment_info as $info): ?>
                 <div class="employee-card">
@@ -20,6 +19,7 @@ $managment_info = $this->db->order_by('id', 'asc')
                         <?= htmlspecialchars(mb_substr($info['details'], 0, 50)) ?>       
                          <?= mb_strlen($info['details']) > 50 ? '...' : '' ?>
                     </p>
+                    <a href="<?= base_url('management_details/' . $info['id']); ?>" class="dashed-link">বিস্তারিত</a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
@@ -42,6 +42,17 @@ $managment_info = $this->db->order_by('id', 'asc')
 
 
 <style>
+
+    .employees .section-title {
+        margin-top: 10px;
+        background: #7a1c87;
+        color: #fff !important;
+        padding: 13px !important;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 6px 6px 0 0;
+    }
     .employees {
         flex: 1 1 55%;
         text-align: center;

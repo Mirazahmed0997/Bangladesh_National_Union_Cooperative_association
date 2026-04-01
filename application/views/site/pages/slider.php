@@ -1,33 +1,80 @@
 <section class="slider-container">
-        <div class="slider">
-            <div class="slide active">
-                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1350&q=80" alt="Slide 1">
-                <div class="slide-content">
-                    
-                </div>
-            </div>
-            <div class="slide">
-                <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1350&q=80" alt="Slide 2">
-                <div class="slide-content">
-                   
-                </div>
-            </div>
-            <div class="slide">
-                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1350&q=80" alt="Slide 3">
-                <div class="slide-content">
-                    
-                </div>
+    <div class="slider">
+        <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1350&q=80"
+                alt="Slide 1">
+            <div class="slide-content">
+
             </div>
         </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1350&q=80"
+                alt="Slide 2">
+            <div class="slide-content">
 
-        <div class="slider-dots">
-            <span class="dot active" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
+            </div>
         </div>
-    </section>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1350&q=80"
+                alt="Slide 3">
+            <div class="slide-content">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="slider-dots">
+        <span class="dot active" onclick="currentSlide(0)"></span>
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+    </div>
+</section>
 
 
+<style>
+    .slider-container {
+    width: 100%;
+    max-width: 1200px;
+    height: 400px;
+    margin: 0 auto;
+    padding: 0 10px; 
+}
+
+.slider {
+    width: 100%;
+    height: 400px; 
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .slider {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .slider {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider {
+        height: 220px; /* smaller height for small screens */
+    }
+}
+</style>
 
 
 <!-- <section class="slider-container">

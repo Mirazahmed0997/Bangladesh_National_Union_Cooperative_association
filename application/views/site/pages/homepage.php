@@ -100,12 +100,11 @@
         </div>
     </div>
 </section> -->
-<section class="hero">
+<!-- <section class="hero">
     <div class="hero-content">
         <h1>সমবায়ের মাধ্যমে একটি টেকসই ভবিষ্যৎ গড়ি</h1>
         <p>অর্থনৈতিক ও সামাজিক প্রবৃদ্ধির জন্য বাংলাদেশের সমবায়ীদের ক্ষমতায়ন করছি।</p>
-        <!-- <h1>Building a Sustainable Future through Cooperation</h1>
-            <p>Empowering cooperatives across Bangladesh for economic and social growth.</p> -->
+      
         <a href="#" class="cta-button">আমাদের লক্ষ্য ও উদ্দেশ্য</a>
     </div>
 </section>
@@ -672,4 +671,4 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->

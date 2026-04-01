@@ -58,3 +58,12 @@
                         </div>
                     </div>
                 </div>
+
+
+
+<style>
+    .project-viewport{
+        width: 100%;
+        height: 300px;
+    }
+</style>
