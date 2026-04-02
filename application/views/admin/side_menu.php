@@ -49,7 +49,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="<?php echo base_url('news_list') ?>"
-                                class="nav-link <?= active_nav('applicant_pending_list', $sub_nav); ?>">
+                                class="nav-link <?= active_nav('news_list', $sub_nav); ?>">
                                 <i class="fas fa-newspaper nav-icon"></i>
                                 <p>সংবাদ</p>
 
@@ -68,6 +68,14 @@
                                 class="nav-link <?= active_nav('applicant_pending_list', $sub_nav); ?>">
                                 <i class="fas fa-newspaper nav-icon"></i>
                                 <p>নোটিশ</p>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?php echo base_url('projects_list') ?>"
+                                class="nav-link <?= active_nav('applicant_pending_list', $sub_nav); ?>">
+                                <i class="fas fa-newspaper nav-icon"></i>
+                                <p>প্রজেক্টস</p>
 
                             </a>
                         </li>

@@ -97,8 +97,10 @@
     border-radius: 4px;
     width: 80%;
     margin: 0 auto;
-    
-    }
+}
+
+
+   
 
     .history-flex {
         display: flex;

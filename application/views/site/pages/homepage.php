@@ -10,6 +10,9 @@
 <?php $this->load->view('site/pages/success_history/success_history'); ?>
 
 
+<?php $this->load->view('site/pages/development_work/development_work'); ?>
+<?php $this->load->view('site/pages/gallary/gallary'); ?>
+
 
 
 
@@ -106,60 +109,7 @@
         <a href="#" class="cta-button">আমাদের লক্ষ্য ও উদ্দেশ্য</a>
     </div>
 </section>
-<section class="our-work">
-    <div class="container">
-        <div class="section-title">
-            <h2>উন্নয়নমূলক কার্যক্রম</h2>
-            <div class="underline"></div>
-        </div>
 
-        <div class="work-slider-wrapper">
-            <div class="work-grid" id="workGrid">
-                <div class="work-card">
-                    <div class="card-icon"><i class="fas fa-bullhorn"></i></div>
-                    <h3>অ্যাডভোকেসি ও নীতি নির্ধারণ</h3>
-                    <p>জাতীয় পর্যায়ে সমবায়ীদের অধিকার রক্ষা এবং সহায়ক নীতিমালা প্রণয়নে আমাদের নিরলস প্রচেষ্টা।</p>
-                </div>
-
-                <div class="work-card">
-                    <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <h3>প্রশিক্ষণ ও দক্ষতা বৃদ্ধি</h3>
-                    <p>সমবায় ব্যবস্থাপনায় দক্ষতা বাড়াতে সদস্যদের জন্য আধুনিক প্রশিক্ষণ ও কর্মশালার আয়োজন করা।</p>
-                </div>
-
-                <div class="work-card">
-                    <div class="card-icon"><i class="fas fa-users"></i></div>
-                    <h3>তৃণমূলের ক্ষমতায়ন</h3>
-                    <p>সামাজিক অন্তর্ভুক্তি এবং দারিদ্র্য বিমোচনের লক্ষ্যে সম্মিলিত অর্থনৈতিক কার্যক্রম পরিচালনা।</p>
-                </div>
-
-                <div class="work-card">
-                    <div class="card-icon"><i class="fas fa-hand-holding-usd"></i></div>
-                    <h3>ক্ষুদ্র ঋণ সুবিধা</h3>
-                    <p>সমবায় সদস্যদের অর্থনৈতিক স্বাবলম্বিতা নিশ্চিত করতে সহজ শর্তে ঋণ ও আর্থিক সহায়তা প্রদান।</p>
-                </div>
-
-                <div class="work-card">
-                    <div class="card-icon"><i class="fas fa-seedling"></i></div>
-                    <h3>কৃষি ও প্রযুক্তি</h3>
-                    <p>আধুনিক কৃষি প্রযুক্তি ব্যবহারের মাধ্যমে উৎপাদন বৃদ্ধি ও সমবায়ীদের কারিগরি সহায়তা প্রদান।</p>
-                </div>
-
-                <div class="work-card">
-                    <div class="card-icon"><i class="fas fa-female"></i></div>
-                    <h3>নারী উদ্যোক্তা তৈরি</h3>
-                    <p>নারীদের অর্থনৈতিক স্বাধীনতা অর্জনে বিশেষ প্রশিক্ষণ ও ক্ষুদ্র ব্যবসা পরিচালনায় উৎসাহ প্রদান।</p>
-                </div>
-
-                <div class="work-card">
-                    <div class="card-icon"><i class="fas fa-shopping-cart"></i></div>
-                    <h3>সমবায় বিপণন</h3>
-                    <p>সমবায়ীদের উৎপাদিত পণ্যের ন্যায্যমূল্য নিশ্চিত করতে বাজারজাতকরণ ও সরবরাহ চেইন তৈরি।</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="success-stories">
     <div class="container">
         <div class="section-title">

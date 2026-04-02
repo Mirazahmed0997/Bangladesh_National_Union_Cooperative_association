@@ -29,6 +29,10 @@ class home_Page_managment_controller extends CI_Controller
 
     }
 
+
+
+
+
     //  ---------------------------- function for file/image uploads------------------
 
 
@@ -530,6 +534,164 @@ class home_Page_managment_controller extends CI_Controller
         $this->Common->delete_data('banner_image', 'id', $id);
         redirect('banner_list');
     }
+
+
+
+     // ---------------------news current_projects----------------------
+    public function create_projects()
+    {
+        $title = $this->input->post('title');
+        $details = $this->input->post('details');
+
+        $user = $this->session->userdata('login_user_info_all');
+        $posted_by = $user->username;
+
+
+        $data = array(
+            'title' => $title,
+            'details' => $details,
+            'posted_by' => $posted_by,
+            'status' => 0,
+            'created_at' => date('Y-m-d H:i:s')
+        );
+
+        $this->db->insert('current_projects', $data);
+
+        $this->session->set_flashdata('success', 'successfully created!');
+        redirect("projects_list");
+    }
+
+
+    // -----------------------all project---------------
+
+
+    public function projects_list()
+    {
+        $data = $this->engine->store_nav('current_projects', 'current_projects', 'প্রজেক্টস');
+
+        $where_data = array();
+
+        $id = $this->input->get('id');
+        $title = $this->input->get('title');
+        $details = $this->input->get('details');
+        $status = $this->input->get('status');
+        $created_at = $this->input->get('created_at');
+        $from_date = $this->input->get('from_date');
+        $to_date = $this->input->get('to_date');
+        $posted_by = $this->input->get('posted_by');
+
+
+
+        if (!empty($id)) {
+            $where_data['id'] = $id;
+        }
+
+        if (!empty($headline)) {
+            $where_data['headline'] = $headline;
+        }
+
+        if (!empty($details)) {
+            $where_data['details'] = $details;
+        }
+
+        if ($status !== '' && $status !== null) {
+            $where_data['status'] = $status;
+        }
+
+
+        if (!empty($where_data)) {
+            $this->db->where($where_data);
+        }
+        if (!empty($from_date)) {
+            $this->db->where('created_at >=', $from_date);
+        }
+
+        if (!empty($to_date)) {
+            $this->db->where('created_at <=', $to_date);
+        }
+
+        if (!empty($posted_by)) {
+            $where_data['posted_by'] = $posted_by;
+        }
+
+        $data['current_projects'] = $this->db->get('current_projects')->result();
+
+        $path = 'admin/current_projects/current_projects_table';
+
+        $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
+    }
+
+
+    // -----------------------update project--------------
+
+    public function update_projects()
+    {
+        $id = $this->input->post('project_id');
+
+        $update_data = [
+
+            'title' => $this->input->post('title'),
+            'details' => $this->input->post('details'),
+        ];
+
+
+        $this->db->where('id', $id);
+        $this->db->update('current_projects', $update_data);
+
+        redirect(base_url('projects_list'));
+    }
+
+    // ------------single project----------
+    public function single_projects($id = null)
+    {
+        // Redirect if no ID
+        if (empty($id)) {
+            redirect(base_url('projects_list'));
+        }
+
+        $data = $this->engine->store_nav('current_projects', 'current_projects', 'প্রজেক্টস');
+
+        // Fetch the specific news
+        $data['single_project'] = $this->Common->get_data_single_conditional('current_projects', 'id', $id)->row();
+
+        // Check if news exists
+        if (!$data['single_project']) {
+            show_404();
+        }
+
+        $path = 'admin/projects_table/projects_table';
+        $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
+    }
+
+
+
+    // --------------------change active status-------------------
+
+    public function projects_active_status($id)
+    {
+        $news = $this->db->get_where('current_projects', ['id' => $id])->row();
+
+        $update_data = [
+
+            'status' => $this->input->post('status'),
+        ];
+
+
+        $this->db->where('id', $id);
+        $this->db->update('current_projects', $update_data);
+
+        redirect(base_url('projects_list'));
+    }
+
+
+    // ---------------------delete project-----------------
+
+    public function delete_project($id)
+    {
+        $this->Common->delete_data('current_projects', 'id', $id);
+        redirect('projects_list');
+    }
+
 
  
 
