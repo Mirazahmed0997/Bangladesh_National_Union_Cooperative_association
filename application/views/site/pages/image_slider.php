@@ -63,7 +63,7 @@ $image_slider = $this->db->order_by('created_at', 'DESC')
   }
 
   .card {
-    ;
+
     box-shadow: 10px 10px 18px rgba(0, 0, 0, 0.12);
 
   }
@@ -76,35 +76,35 @@ $image_slider = $this->db->order_by('created_at', 'DESC')
   .swiper-slide {
     display: flex;
     justify-content: center;
+  }
+
+  
 
 
+  .card-body.hover-show {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 15px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.4s ease;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
 
-    .card-body.hover-show {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      color: #fff;
-      padding: 15px;
-      opacity: 0;
-      transform: translateY(100%);
-      transition: all 0.4s ease;
-      border-bottom-left-radius: 12px;
-      border-bottom-right-radius: 12px;
-    }
+  .card:hover .card-body.hover-show {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-    .card:hover .card-body.hover-show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .card-body.hover-show h5 {
-      margin: 0;
-      font-size: 16px;
-      font-weight: 600;
-    }
-
+  .card-body.hover-show h5 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
   }
 </style>
 

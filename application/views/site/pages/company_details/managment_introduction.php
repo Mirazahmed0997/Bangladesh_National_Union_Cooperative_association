@@ -90,6 +90,7 @@ $managment_info = $this->db->order_by('id', 'asc')
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         padding: 20px;
         text-align: center;
+        
     }
 
     .employee-card:hover {

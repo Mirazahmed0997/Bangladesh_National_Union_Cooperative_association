@@ -57,9 +57,7 @@
     /* PARAGRAPH */
     .about-card p {
         font-size: 16px;
-        /* 🔥 perfect readable size */
         line-height: 1.9;
-        /* 🔥 important for Bangla */
         color: #0b5ed7;
         text-align: justify;
         margin-bottom: 15px;

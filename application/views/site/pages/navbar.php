@@ -1,7 +1,7 @@
 <div class="container">
                 <nav id="navbar">
                     <ul>
-                        <li><a href="<?php echo base_url(); ?>" class="active">হোম</a></li>
+                        <!-- <li><a href="<?php echo base_url(); ?>" class="active">হোম</a></li> -->
                         <li class="dropdown">
                             <a href="javascript:void(0)" onclick="toggleDropdown(this)">আমাদের সম্পর্কে <i
                                     class="fas fa-chevron-down"></i></a>
@@ -59,6 +59,7 @@
                             <a href="javascript:void(0)" onclick="toggleDropdown(this)">আন্তর্জাতিক <i
                                     class="fas fa-chevron-down"></i></a>
                             <ul class="submenu">
+                                
                                 <li><a href="#">ICA কার্যক্রম</a></li>
                                 <li><a href="#">বৈদেশিক সম্মেলন</a></li>
                                 <li><a href="#">আন্তর্জাতিক অংশীদার</a></li>
@@ -74,6 +75,7 @@
                                 <li><a href="#">প্রেস রিলিজ</a></li>
                             </ul>
                         </li>
+                        <li><a href="#">ICA সদস্য</a></li>
                         <li><a href="Applicant/members_list/members_list">সদস্য তথ্য</a></li>
                         <li><a href="<?php echo base_url('member_registration'); ?>" class="btn-contact">নতুন সদস্য
                                 আবেদন</a></li>
