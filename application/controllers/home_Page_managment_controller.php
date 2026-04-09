@@ -52,7 +52,7 @@ class home_Page_managment_controller extends CI_Controller
 
 
 
-// ---------------------achievements method----------------------
+    // ---------------------achievements method----------------------
 
 
 
@@ -263,10 +263,11 @@ class home_Page_managment_controller extends CI_Controller
     }
 
 
-// --------------------------------#########################---------------------------------
+    // --------------------------------#########################---------------------------------
 
 
     // -------------------create_slider------------
+    
     public function create_slider()
     {
         $user = $this->session->userdata('login_user_info_all');
@@ -550,7 +551,7 @@ class home_Page_managment_controller extends CI_Controller
     }
 
 
-     public function update_info()
+    public function update_info()
     {
         $id = $this->input->post('info_id');
         $managment_info = $this->db->get_where('managment_info', ['id' => $id])->row();
@@ -610,7 +611,7 @@ class home_Page_managment_controller extends CI_Controller
     }
 
 
-      public function delete_info($id)
+    public function delete_info($id)
     {
         $this->Common->delete_data('managment_info', 'id', $id);
         redirect('managment_list');
@@ -619,10 +620,10 @@ class home_Page_managment_controller extends CI_Controller
 
 
 
-//   ----------------------------banner image--------------------------
+    //   ----------------------------banner image--------------------------
 
 
- public function banner_list()
+    public function banner_list()
     {
         $data = $this->engine->store_nav('banner_image', 'banner_image', 'ব্যানার');
 
@@ -638,9 +639,9 @@ class home_Page_managment_controller extends CI_Controller
         if (!empty($id)) {
             $where_data['id'] = $id;
         }
-       
 
-       
+
+
         if (!empty($posted_by)) {
             $where_data['posted_by'] = $posted_by;
         }
@@ -656,7 +657,7 @@ class home_Page_managment_controller extends CI_Controller
             $this->db->where('created_at <=', $to_date);
         }
 
-       
+
 
         $data['banner_image'] = $this->db->get('banner_image')->result();
 
@@ -666,7 +667,7 @@ class home_Page_managment_controller extends CI_Controller
     }
 
 
-     public function single_banner($id = null)
+    public function single_banner($id = null)
     {
         // Redirect if no ID
         if (empty($id)) {
@@ -682,18 +683,18 @@ class home_Page_managment_controller extends CI_Controller
             show_404();
         }
 
-        
+
         $path = 'admin/banner_table/banner_table';
         $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
     }
 
 
- public function update_banner()
+    public function update_banner()
     {
         $id = $this->input->post('banner_id');
         $banner_image = $this->db->get_where('banner_image', ['id' => $id])->row();
 
-       
+
         function update_file($field_name, $upload_path, $old_file = '', $allowed_types = '*')
         {
             $CI =& get_instance();
@@ -748,12 +749,12 @@ class home_Page_managment_controller extends CI_Controller
 
 
 
-     // ---------------------news current_projects----------------------
+    // ---------------------news current_projects----------------------
     public function create_projects()
     {
         $title = $this->input->post('title');
         $details = $this->input->post('details');
-
+        $image = $this->upload_file('image', './assets/uploads/project/project_image/');
         $user = $this->session->userdata('login_user_info_all');
         $posted_by = $user->username;
 
@@ -762,6 +763,7 @@ class home_Page_managment_controller extends CI_Controller
             'title' => $title,
             'details' => $details,
             'posted_by' => $posted_by,
+            'image' => $image,
             'status' => 0,
             'created_at' => date('Y-m-d H:i:s')
         );
@@ -784,6 +786,7 @@ class home_Page_managment_controller extends CI_Controller
 
         $id = $this->input->get('id');
         $title = $this->input->get('title');
+        $image = $this->input->get('image');
         $details = $this->input->get('details');
         $status = $this->input->get('status');
         $created_at = $this->input->get('created_at');
@@ -838,12 +841,50 @@ class home_Page_managment_controller extends CI_Controller
     public function update_projects()
     {
         $id = $this->input->post('projects_id');
+        $current_projects = $this->db->get_where('current_projects', ['id' => $id])->row();
 
         $update_data = [
 
             'title' => $this->input->post('title'),
             'details' => $this->input->post('details'),
         ];
+
+        function update_file($field_name, $upload_path, $old_file = '', $allowed_types = '*')
+        {
+            $CI =& get_instance();
+
+            if (!empty($_FILES[$field_name]['name'])) {
+
+                $config['upload_path'] = $upload_path;
+                $config['allowed_types'] = $allowed_types;
+                $config['file_name'] = time() . '_' . $_FILES[$field_name]['name'];
+
+                $CI->load->library('upload');
+                $CI->upload->initialize($config);
+
+                if ($CI->upload->do_upload($field_name)) {
+
+                    $uploadData = $CI->upload->data();
+                    $new_file = $uploadData['file_name'];
+
+                    // delete old file
+                    if (!empty($old_file) && file_exists($upload_path . $old_file)) {
+                        unlink($upload_path . $old_file);
+                    }
+
+                    return $new_file;
+                }
+            }
+
+            return $old_file;
+        }
+
+        $update_data['image'] = update_file(
+            'image',
+            './assets/uploads/project/project_image/',
+            $current_projects->image,
+            'jpg|jpeg|png'
+        );
 
 
         $this->db->where('id', $id);
@@ -904,7 +945,7 @@ class home_Page_managment_controller extends CI_Controller
     }
 
 
- 
+
 
 
 }

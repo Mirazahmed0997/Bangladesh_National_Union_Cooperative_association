@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
 
-            <form action="<?= base_url('home_Page_managment_controller/create_projects'); ?>" method="post">
+            <form action="<?= base_url('home_Page_managment_controller/create_projects'); ?>" method="post" enctype="multipart/form-data">
 
                 <div class="modal-header">
                     <h5 class="modal-title">Create Project</h5>
@@ -19,6 +19,12 @@
                     <div class="form-group">
                         <label>Details</label>
                         <textarea name="details" class="form-control" placeholder="Enter details" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label >Image</label>
+                        <div style="position:relative;">
+                            <input type="file" name="image" id="image" class="form-control"></input>
+                        </div>
                     </div>
 
 

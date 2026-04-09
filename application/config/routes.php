@@ -78,6 +78,7 @@ $route['delete_banner/(:num)'] = 'Home_Page_managment_controller/delete_banner/$
 $route['projects_list'] = 'Home_Page_managment_controller/projects_list';
 $route['delete_project/(:num)'] = 'Home_Page_managment_controller/delete_project/$1';
 $route['projects_active_status/(:num)'] = 'Home_Page_managment_controller/projects_active_status/$1';
+$route['project_details/(:num)'] = 'View_content_controller/project_details/$1';
 
 
 // -----------------achievements_list------------------
@@ -94,7 +95,8 @@ $route['image_active_status/(:num)'] = 'Gallary_controller/image_active_status/$
 $route['delete_image/(:num)'] = 'Gallary_controller/delete_image/$1';
 
 
-
+// --------------------------------------------------
+$route['ica_member'] = 'View_content_controller/ica/$1';
 
 
 
@@ -105,6 +107,7 @@ $route['delete_image/(:num)'] = 'Gallary_controller/delete_image/$1';
 $route['member_registration'] = 'Site/member_application';
 $route['member_register'] = 'Site/member_application_save';
 $route['member_login'] = 'Member_login/index';
+$route['members_login'] = 'Member_login/login_process';
 $route['member_logout'] = 'Member_login/logout';
 $route['change_password/(:num)'] = 'Member_login/change_password/$1';
 
@@ -114,7 +117,7 @@ $route['change_password/(:num)'] = 'Member_login/change_password/$1';
 // --------------------Member dashboard----------------------
 
 $route['applicant_dashboard'] = 'Applicant/members_count';
-$route['members'] = 'Applicant/members_list/members_list';
+$route['members'] = 'Applicant/members_list';
 $route['single_member/(:num)'] = 'Applicant/view_member/$1';
 $route['edit_member/(:num)'] = 'Applicant/edit_member/$1';
 // $route['delete_member/(:num)'] = 'Applicant/delete_member/$1';

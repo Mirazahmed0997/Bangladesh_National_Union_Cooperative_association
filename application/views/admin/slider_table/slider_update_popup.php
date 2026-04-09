@@ -8,7 +8,7 @@
             <form action="<?= base_url('home_Page_managment_controller/update_slider/'); ?>" method="post" enctype="multipart/form-data">
 
                 <div class="modal-header">
-                    <h5 class="modal-title">Update Slider</h5>
+                    <h5 class="modal-title">Change news photo</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 

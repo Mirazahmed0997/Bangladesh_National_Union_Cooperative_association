@@ -9,8 +9,6 @@ $image_slider = $this->db->order_by('created_at', 'DESC')
   ->result_array();
 ?>
 
-
-
 <div class="container my-2">
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
@@ -19,16 +17,13 @@ $image_slider = $this->db->order_by('created_at', 'DESC')
         <?php foreach ($image_slider as $slide): ?>
           <div class="swiper-slide">
 
-            <div class="card" style="width: 18rem;">
-              <img src="<?= base_url('assets/uploads/project/slider_image/' . $slide['image']) ?>" class="card-img-top"
-                alt="...">
+            <div class="card">
+              <img src="<?= base_url('assets/uploads/project/slider_image/' . $slide['image']) ?>" class="card-img-top" alt="<?= htmlspecialchars($slide['title']) ?>">
               <div class="card-body hover-show">
                 <h5 class="card-title"><?= htmlspecialchars($slide['title']) ?></h5>
               </div>
             </div>
-
-
-
+            
           </div>
         <?php endforeach; ?>
       <?php else: ?>
@@ -50,36 +45,36 @@ $image_slider = $this->db->order_by('created_at', 'DESC')
   </div>
 </div>
 
-
-
 <style>
   .swiper {
     padding-bottom: 50px;
   }
 
-  .swiper-slide img {
-    height: 250px;
-    object-fit: cover;
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    width: auto !important; 
   }
 
   .card {
-
+    width: 100%;          
+    max-width: 18rem;     
     box-shadow: 10px 10px 18px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+  }
 
+  .card-img-top {
+    height: 250px;
+    object-fit: cover;
+    width: 100%;
   }
 
   .card-body {
     background-color: transparent;
+    position: relative;
   }
-
-
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-  }
-
-  
-
 
   .card-body.hover-show {
     position: absolute;
@@ -106,14 +101,22 @@ $image_slider = $this->db->order_by('created_at', 'DESC')
     font-size: 16px;
     font-weight: 600;
   }
+
+  /* Responsive tweaks */
+
+  @media (max-width: 576px) {
+    .card-img-top {
+      height: 150px; 
+    }
+  }
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
   var swiper = new Swiper(".mySwiper", {
     slidesPerView: 1,
-    spaceBetween: 5,
-    loop: true,
+    spaceBetween: 2,
+    loop: false,
 
     autoplay: {
       delay: 2000,
@@ -142,19 +145,4 @@ $image_slider = $this->db->order_by('created_at', 'DESC')
       }
     }
   });
-
-
 </script>
-
-
-
-
-<!-- <div class="card">
-              <img src="<?= base_url('assets/uploads/project/slider_image/' . $slide['image']) ?>" class="card-img-top"
-                alt="<?= htmlspecialchars($slide['title']) ?>">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <?= htmlspecialchars($slide['title']) ?>
-                </h5>
-              </div>
-            </div> -->

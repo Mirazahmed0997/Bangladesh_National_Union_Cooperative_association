@@ -169,7 +169,7 @@ class Applicant extends CI_Controller
 
         $data['members'] = $this->db->get('members_n')->result();
 
-        $path = 'Applicant/members_list/members_list';
+        $path = 'applicant/members_list/members_list';
         $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);
     }
 

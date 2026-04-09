@@ -15,8 +15,7 @@
 
         <!-- LEFT -->
         <div class="left">
-          <?php $this->load->view('site/pages/notice&current_projects/notice'); ?>
-           
+          <?php $this->load->view('site/pages/notice&current_projects/notice'); ?> 
         </div>
 
         <!-- CENTER -->
@@ -93,16 +92,16 @@
     .center img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     /* RIGHT SECTION */
     .right {
         flex: 1;
         background: #fff;
-        border-radius: 6px;
+        /* border-radius: 6px; */
         text-align: center;
-        padding-bottom: 20px;
+        /* padding-bottom: 20px; */
     }
 
     .right h3 {
@@ -119,7 +118,7 @@
         width: 120px;
         height: 140px;
         object-fit: cover;
-        border-radius: 6px;
+        /* border-radius: 6px; */
     }
 
     .profile h4 {

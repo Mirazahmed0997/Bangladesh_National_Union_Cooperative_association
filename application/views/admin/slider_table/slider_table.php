@@ -62,7 +62,7 @@
                             style="width:100%; white-space: nowrap;">
 
                             <button type="button" class="btn btn-success m-2" id="openCreateModal">
-                                <i class="fas fa-edit"></i> Create New Slider
+                                <i class="fas fa-edit"></i> Upload News photo
                             </button>
 
                             <thead class="thead-dark">

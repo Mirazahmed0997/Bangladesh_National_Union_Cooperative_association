@@ -11,10 +11,29 @@ class View_content_controller extends CI_Controller
     }
 
 
-  
-
 
    
+    public function ica()
+    {
+        $this->load->view('site/pages/ica/ica');
+    }
+    public function project_details($id = null)
+    {
+        if (!$id) {
+            show_404();
+        }
+
+        $data['current_projects'] = $this->db->where('id', $id)
+            ->where('status', 1)
+            ->get('current_projects')
+            ->row_array();
+
+        if (!$data['current_projects']) {
+            show_404();
+        }
+
+        $this->load->view('site/pages/notice&current_projects/project_details', $data);
+    }
 
     // -------------------news details------------
     public function news_details($id = null)
@@ -92,18 +111,6 @@ class View_content_controller extends CI_Controller
 
         $this->load->view('site/pages/company_details/managment_details', $data);
     }
-
-
-
-
-  
-
-
-
-
-
-
-
 
 }
 

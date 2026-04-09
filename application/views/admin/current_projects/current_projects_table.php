@@ -70,6 +70,7 @@
                                     <th>ক্রমিক</th>
                                     <th>শিরোনাম</th>
                                     <th>বিস্তারিত</th>
+                                    <th>ছবি</th>
                                     <th>অবস্থান</th>
                                     <th>Posted By</th>
                                     <th>Created At</th>
@@ -84,7 +85,13 @@
                                         <td><?= $row->title; ?></td>
                                         <td><?= $row->details; ?></td>
                                         <td>
-                                            <form action="<?= base_url('projects_active_status/' . $row->id); ?>" method="post">
+                                            <img src="<?= base_url('./assets/uploads/project/project_image/' . $row->image) ?>"
+                                                alt="Image" width="100px" height="100px">
+                                        </td>
+
+                                        <td>
+                                            <form action="<?= base_url('projects_active_status/' . $row->id); ?>"
+                                                method="post">
                                                 <select name="status" onchange="this.form.submit()"
                                                     class="form-control form-control-sm">
                                                     <option value=1 <?= $row->status == 1 ? 'selected' : '' ?>>Active
@@ -102,10 +109,12 @@
                                                 data-id="<?= $row->id; ?>"
                                                 data-title="<?= htmlspecialchars($row->title, ENT_QUOTES); ?>"
                                                 data-details="<?= htmlspecialchars($row->details, ENT_QUOTES); ?>">
-                                               <i class="fas fa-edit nav-icon"></i>
+                                                <i class="fas fa-edit nav-icon"></i>
                                             </a>
                                             <a href="<?= base_url('delete_project/' . $row->id) ?>"
-                                                class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this news?')"><i class="fas fa-trash nav-icon"></i></a>
+                                                class="btn btn-danger btn-sm"
+                                                onclick="return confirm('Are you sure you want to delete this news?')"><i
+                                                    class="fas fa-trash nav-icon"></i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -160,15 +169,15 @@
     });
 
 
-// ------------update form popup-----------------------------------
+    // ------------update form popup-----------------------------------
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
     $(document).on("click", ".open-charge-modal", function () {
-    
-    $("#chargeModal").modal("show");
+
+        $("#chargeModal").modal("show");
 });
 
 
@@ -190,7 +199,7 @@
 });
 });
 
-// ------------set previous value in update form------------
+    // ------------set previous value in update form------------
 
     $(document).ready(function () {
         $('.open-charge-modal').on('click', function () {
@@ -219,12 +228,12 @@
     });
 
 
-// --------------------create popup-----------------------
+    // --------------------create popup-----------------------
 
     $(document).ready(function() {
-    $('#openCreateModal').click(function() {
-        $('#createNewsModal').modal('show');
-    });
+        $('#openCreateModal').click(function () {
+            $('#createNewsModal').modal('show');
+        });
 });
 
 </script>

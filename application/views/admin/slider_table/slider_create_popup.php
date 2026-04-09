@@ -6,7 +6,7 @@
                 enctype="multipart/form-data">
 
                 <div class="modal-header">
-                    <h5 class="modal-title">Create Slider</h5>
+                    <h5 class="modal-title">Upload News Photo</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
 
@@ -14,7 +14,7 @@
 
                     <div class="form-group">
                         <label>Title</label>
-                        <input type="text" name="title" class="form-control" placeholder="Enter title" required>
+                        <input type="text" name="title" class="form-control" placeholder="Enter title" >
                     </div>
 
                     <div class="form-group">
