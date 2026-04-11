@@ -1,5 +1,6 @@
 <?php
 $managment_info = $this->db->order_by('id', 'asc')
+    ->limit(2)
     ->get('managment_info')
     ->result_array();
 ?>
@@ -14,7 +15,7 @@ $managment_info = $this->db->order_by('id', 'asc')
 
                 <div class="employee-card">
                     <img src="<?= base_url('./assets/uploads/project/management_img/' . $info['image']) ?>" alt="Jane Smith">
-                    <div class="card-body" style="padding: 10px;box-shadow: 10px 10px 18px rgba(0, 0, 0, 0.12);">
+                    <div class="card-body" style="padding: 10px;">
                         <p style="font-size: 14px; line-height: 1.1;"><?= htmlspecialchars($info['name']) ?></p>
                         <p style="font-size: 14px;" class=" designation"><?= htmlspecialchars($info['designation']) ?></p>
                         <p class="details" style="font-size: 14px; line-height: 1.1;">
@@ -25,10 +26,6 @@ $managment_info = $this->db->order_by('id', 'asc')
                             href="<?= base_url('management_details/' . $info['id']); ?>" class="dashed-link">বিস্তারিত</a>
                     </div>
                 </div>
-
-
-
-
             <?php endforeach; ?>
         <?php else: ?>
             <div class="swiper-slide">
@@ -41,7 +38,14 @@ $managment_info = $this->db->order_by('id', 'asc')
             </div>
         <?php endif; ?>
     </div>
+
+    
+<div style="text-align: center;">
+    <a href="all_managment">সকল সদস্য</a>
 </div>
+</div>
+
+
 
 
 <style>
@@ -60,7 +64,7 @@ $managment_info = $this->db->order_by('id', 'asc')
         flex: 1 1 55%;
         display: flex;
         flex-direction: column;
-        height: 660px;
+        height: 710px;
         padding: 10px;
         box-shadow: 10px 10px 18px rgba(0, 0, 0, 0.12);
         overflow: hidden;
@@ -78,7 +82,10 @@ $managment_info = $this->db->order_by('id', 'asc')
         flex-wrap: wrap;
         gap: 10px;
         padding-right: 10px;
-        align-content: flex-start;
+    }
+
+    .employee-card {
+        flex: 0 0 calc(50% - 10px);
     }
 
     .employee-cards::-webkit-scrollbar {
@@ -90,13 +97,11 @@ $managment_info = $this->db->order_by('id', 'asc')
         border-radius: 4px;
     }
 
-    .employee-card.employee-card {
+    .employee-card {
         flex: 0 0 calc(50% - 10px);
         max-width: calc(50% - 10px);
-        background: #9ab6ba;
-        /* border-radius: 10px; */
+        /* background: #9ab6ba; */
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        /* padding: 5px; */
         text-align: center;
 
     }
@@ -108,7 +113,7 @@ $managment_info = $this->db->order_by('id', 'asc')
     .employee-card img {
         width: 100%;
         height: 310px;
-        object-fit: cover;
+        object-fit: contain;
         margin-bottom: 6px;
     }
 
@@ -139,7 +144,7 @@ $managment_info = $this->db->order_by('id', 'asc')
             padding: 5px;
         }
 
-        .employee-card.employee-card {
+        .employee-card {
             flex: 0 0 100%;
             max-width: 100%;
             padding: 5px;

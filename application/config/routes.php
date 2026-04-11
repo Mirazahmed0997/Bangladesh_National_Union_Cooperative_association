@@ -38,6 +38,7 @@ $route['company_details'] = 'View_content_controller/details_description';
 $route['news_details/(:num)'] = 'View_content_controller/news_details/$1';
 $route['notice_details/(:num)'] = 'View_content_controller/notice_details/$1';
 $route['management_details/(:num)'] = 'View_content_controller/management_details/$1';
+$route['all_managment'] = 'View_content_controller/all_managment';
 
 
 
@@ -66,6 +67,7 @@ $route['delete_slider/(:num)'] = 'Home_Page_managment_controller/delete_slider/$
 
 $route['managment_list'] = 'Home_Page_managment_controller/managment_list';
 $route['delete_info/(:num)'] = 'Home_Page_managment_controller/delete_info/$1';
+
 
 
 

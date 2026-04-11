@@ -81,6 +81,10 @@ class View_content_controller extends CI_Controller
     {
         $this->load->view('site/pages/company_details/details_description');
     }
+    public function all_managment()
+    {
+        $this->load->view('site/pages/company_details/all_managment');
+    }
 
    
     public function get_management_info()
