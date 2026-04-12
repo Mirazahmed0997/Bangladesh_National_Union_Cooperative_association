@@ -39,7 +39,7 @@ $current_projects = $this->db->order_by('created_at', 'DESC')
 <style>
     .project-viewport {
         width: 100%;
-        height: 400px;
+        height: 320px;
         overflow: hidden;
     }
 
@@ -51,7 +51,6 @@ $current_projects = $this->db->order_by('created_at', 'DESC')
         background: #fff;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         margin-bottom: 15px;
-        border-radius: 12px;
     }
 
     .project-list-scroll img {
@@ -62,7 +61,6 @@ $current_projects = $this->db->order_by('created_at', 'DESC')
         display: block;
         cursor: pointer;
         transition: transform 0.4s ease;
-        border-radius: 8px;
     }
 
     .project-list-scroll img:hover {
@@ -88,7 +86,7 @@ $current_projects = $this->db->order_by('created_at', 'DESC')
         display: block;
         width: 100%;
         height: 100%;
-        border-radius: 12px;
+        /* border-radius: 12px; */
         box-shadow: 0 0 25px rgba(255,255,255,0.4);
         animation: zoomIn 0.3s;
     }

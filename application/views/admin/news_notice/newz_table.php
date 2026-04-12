@@ -81,8 +81,8 @@
                                 foreach ($news as $row): ?>
                                     <tr>
                                         <td><?= $i++; ?></td>
-                                        <td><?= $row->headline; ?></td>
-                                        <td><?= $row->details; ?></td>
+                                        <td style="max-height: 100px; overflow-y: auto; white-space: normal;"><?= $row->headline; ?></td>
+                                        <td style="max-height: 100px; overflow-y: auto; white-space: normal;"><?= $row->details; ?></td>
                                         <td>
                                             <form action="<?= base_url('update_news_status/' . $row->id); ?>" method="post">
                                                 <select name="status" onchange="this.form.submit()"

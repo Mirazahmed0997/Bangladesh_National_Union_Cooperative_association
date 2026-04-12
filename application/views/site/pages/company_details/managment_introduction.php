@@ -40,8 +40,8 @@ $managment_info = $this->db->order_by('id', 'asc')
     </div>
 
     
-<div style="text-align: center;">
-    <a href="all_managment">সকল সদস্য</a>
+<div style="text-align: center; padding: 10px;">
+    <a href="all_managment">সকল ব্যবস্থাপনা সদস্য</a>
 </div>
 </div>
 
@@ -57,14 +57,14 @@ $managment_info = $this->db->order_by('id', 'asc')
         font-size: 20px;
         font-weight: 600;
         text-align: center;
-        border-radius: 6px 6px 0 0;
+        /* border-radius: 6px 6px 0 0; */
     }
 
     .employees {
         flex: 1 1 55%;
         display: flex;
         flex-direction: column;
-        height: 710px;
+        height: 610px;
         padding: 10px;
         box-shadow: 10px 10px 18px rgba(0, 0, 0, 0.12);
         overflow: hidden;

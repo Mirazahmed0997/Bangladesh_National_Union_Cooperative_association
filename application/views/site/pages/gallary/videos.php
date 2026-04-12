@@ -49,7 +49,7 @@
     .video-gallery-item video {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     .video-gallery-item {

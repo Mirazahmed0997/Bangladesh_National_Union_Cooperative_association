@@ -100,14 +100,14 @@
                 <label>সমিতি নাম</label>
                 <input type="text" name="association_name" placeholder="সমিতি নাম...">
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label>টাকার পরিমাণ</label>
                 <input type="number" name="paid_amount" placeholder="সমিতি নাম...">
-            </div>
-            <div class="form-group">
+            </div> -->
+            <!-- <div class="form-group">
                 <label>পরিশোধের রশিদ নম্বর</label>
                 <input type="text" name="voucher_no" placeholder="পরিশোধের রশিদ নম্বর...">
-            </div>
+            </div> -->
             <div class="form-group">
                 <label>ব্যবস্থাপনা কমিটির তারিখ</label>
                 <input type="date" name="managing_committee_date">
@@ -150,12 +150,12 @@
                 <label>তারিখ</label>
                 <input type="date" name="Cooperative_association_registration_date">
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label>সমিতির শ্রেনি</label>
                 <input type="text" name="Cooperative_association_class">
-            </div>
+            </div> -->
             <div class="form-group">
-                <label>টাইপ</label>
+                <label>সমিতির শ্রেনি</label>
                 <select name="Cooperative_association_type">
                     <option value="">নির্বাচন করুন</option>
                     <option value="প্রাথমিক">প্রাথমিক</option>
@@ -173,7 +173,7 @@
             </div>
         </div>
 
-        <div class="form-section-title">৩. সমিতির পক্ষে মনোনিত সদস্য তথ্য (Nomini Information)</div>
+        <div class="form-section-title">৩. সমিতির পক্ষে মনোনিত সদস্যের নাম ও স্বাক্ষর (Nomini Information)</div>
         <div class="grid-container">
             <div class="form-group">
                 <label>নাম</label>

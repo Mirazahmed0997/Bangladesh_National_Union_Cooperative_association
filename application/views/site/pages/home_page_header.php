@@ -27,6 +27,7 @@
 
 <style>
    .header {
+    padding-top: 5px;
     display: flex;
     justify-content: space-between;
     align-items: start; 

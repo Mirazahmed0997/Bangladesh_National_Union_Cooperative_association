@@ -81,7 +81,7 @@
                                 foreach ($image_slider as $row): ?>
                                     <tr>
                                         <td><?= $i++; ?></td>
-                                        <td><?= $row->title; ?></td>
+                                        <td style="max-height: 100px; overflow-y: auto; white-space: normal;"><?= $row->title; ?></td>
                                         <td>
                                             <img src="<?= base_url('/assets/uploads/project/slider_image/' . $row->image) ?>" alt="Image" width="100px" height="100px">
                                         </td>

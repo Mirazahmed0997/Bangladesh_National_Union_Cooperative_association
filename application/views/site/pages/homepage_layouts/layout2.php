@@ -58,7 +58,7 @@
     .left {
         flex: 1;
         background: #fff;
-        border-radius: 6px;
+        /* border-radius: 6px; */
         overflow: hidden;
     }
 
@@ -86,7 +86,7 @@
     .center {
         flex: 2;
         background: #fff;
-        border-radius: 6px;
+        /* border-radius: 6px; */
         overflow: hidden;
     }
 
@@ -100,7 +100,7 @@
     .right {
         flex: 1;
         background: #fff;
-        border-radius: 6px;
+        /* border-radius: 6px; */
         text-align: center;
         padding-bottom: 20px;
     }
@@ -119,7 +119,7 @@
         width: 120px;
         height: 140px;
         object-fit: cover;
-        border-radius: 6px;
+        /* border-radius: 6px; */
     }
 
     .profile h4 {
@@ -132,7 +132,7 @@
         padding: 8px 16px;
         background: teal;
         color: #fff;
-        border-radius: 4px;
+        /* border-radius: 4px; */
         text-decoration: none;
         margin-top: 10px;
     }

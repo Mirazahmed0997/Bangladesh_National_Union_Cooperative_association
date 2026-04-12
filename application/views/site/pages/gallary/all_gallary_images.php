@@ -9,6 +9,7 @@ $image_gallery = $this->db->order_by('id', 'asc')
 
 <section class="py-5 bg-light">
     <div class="container">
+        <?php $this->load->view('site/pages/home_page_header'); ?>
 
         <div class="gallary-section-title">
             <h2>গ্যালারি</h2>

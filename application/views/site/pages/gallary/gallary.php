@@ -56,7 +56,7 @@ $image_gallery = $this->db->order_by('id', 'asc')
     .gallary-section {
         background-color: antiquewhite;
         width: 100%;
-        padding: 10px;
+        /* padding: 10px; */
     }
 
     .gallary-section-title {
@@ -64,7 +64,7 @@ $image_gallery = $this->db->order_by('id', 'asc')
         color: #fff;
         background-color: #7A1C87;
         text-align: center;
-        border-radius: 4px;
+        /* border-radius: 4px; */
         margin-bottom: 10px;
     }
 
@@ -83,7 +83,7 @@ $image_gallery = $this->db->order_by('id', 'asc')
         width: 100%;
         aspect-ratio: 1 / 1;
         overflow: hidden;
-        border-radius: 10px;
+        /* border-radius: 10px; */
         cursor: pointer;
     }
 
@@ -114,7 +114,7 @@ $image_gallery = $this->db->order_by('id', 'asc')
     .lightbox img {
         max-width: 90%;
         max-height: 90%;
-        border-radius: 10px;
+        /* border-radius: 10px; */
     }
 
 

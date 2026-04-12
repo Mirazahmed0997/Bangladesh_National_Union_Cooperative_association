@@ -99,6 +99,7 @@ $managment_info = $this->db->order_by('id', 'asc')
     }
 
     .member-card {
+        padding: 5px;
         text-align: center;
         background: #fff;
         border-radius: 8px;
@@ -126,7 +127,7 @@ $managment_info = $this->db->order_by('id', 'asc')
 
     .other-members {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
 }
 

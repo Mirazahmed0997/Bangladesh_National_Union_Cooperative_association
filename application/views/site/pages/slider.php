@@ -100,14 +100,14 @@ $banner_image = $this->db->order_by('created_at', 'DESC')
         max-width: 1200px;
         height: 400px;
         margin: 0 auto;
-        padding: 0 10px;
+        /* padding: 0 10px; */
     }
 
     .slider {
         width: 100%;
         height: 400px;
         overflow: hidden;
-        border-radius: 8px;
+        /* border-radius: 8px; */
         position: relative;
     }
 
