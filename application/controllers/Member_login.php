@@ -93,7 +93,7 @@ class Member_login extends CI_Controller
     public function logout()
     {
         $this->session->sess_destroy();
-        redirect('member_login');
+        redirect('admin');
     }
 }
 

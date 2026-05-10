@@ -467,7 +467,11 @@ class Admin extends CI_Controller
 			$this->db->where('created_at <=', $to_date);
 		}
 
-		$data['orders'] = $this->db->get('orders_table')->result();
+		// $data['orders'] = $this->db->get('orders_table')->result();
+		 $data['orders'] = $this->db
+            ->order_by('id', 'DESC')
+            ->get('orders_table')
+            ->result();
 
 		$path = 'admin/orders_table/orders_table';
 		$this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);

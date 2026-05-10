@@ -80,11 +80,11 @@
                         <table id="membersTable" class="table table-bordered table-striped table-hover"
                             style="width:100%; white-space: nowrap;">
                             <button  class="alert alert-info text-center">
-                                <a href="<?= base_url('all_products') ?>"> আরো কিনুন</a>
+                                <a href="<?= base_url('all_products') ?>">নতুন অর্ডার যোগ করুন</a>
                             </button>
                             <thead class="thead-dark">
                                 <tr>
-                                    <th rowspan=""></th>
+                                    <th rowspan="">No.</th>
                                     <th rowspan="">Order ID</th>
                                     <th rowspan="">Name</th>
                                     <th rowspan="">mobile_number</th>

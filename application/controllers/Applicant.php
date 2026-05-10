@@ -95,7 +95,11 @@ class Applicant extends CI_Controller
             $this->db->where('created_at <=', $to_date);
         }
 
-        $data['orders'] = $this->db->get('orders_table')->result();
+        // $data['orders'] = $this->db->get('orders_table')->result();
+        $data['orders'] = $this->db
+            ->order_by('id', 'asc')
+            ->get('orders_table')
+            ->result();
 
         $path = 'applicant/orders_table/orders_table';
         $this->engine->render_view($data, $path, $this->side_menu, $this->main_layout);

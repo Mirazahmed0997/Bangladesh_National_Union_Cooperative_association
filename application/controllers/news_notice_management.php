@@ -237,7 +237,7 @@ class news_notice_management extends CI_Controller
             'created_at' => date('Y-m-d H:i:s')
         );
 
-        $this->db->insert('noticeS', $data);
+        $this->db->insert('notices', $data);
 
         $this->session->set_flashdata('success', 'Notice created successfully!');
         redirect("notice_list");

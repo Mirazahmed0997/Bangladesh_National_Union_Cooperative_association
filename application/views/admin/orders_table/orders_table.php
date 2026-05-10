@@ -66,7 +66,7 @@
                             </button> -->
                             <thead class="thead-dark">
                                 <tr>
-                                    <th rowspan=""></th>
+                                    <th rowspan="">No.</th>
                                     <th rowspan="">Order ID</th>
                                     <th rowspan="">Name</th>
                                     <th rowspan="">mobile_number</th>

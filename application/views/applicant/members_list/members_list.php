@@ -172,7 +172,7 @@
                                                 class="btn btn-success btn-sm"><i class="fas fa-eye"></i></a></td>
                                         <td>
 
-                                            <a href="<?= base_url('Admin/form_view/' . $row->id); ?>"
+                                            <a href="<?= base_url('Applicant/form_view/' . $row->id); ?>"
                                                 class="btn btn-warning btn-sm">Preview</a>
                                             <a href="<?= base_url('Applicant/edit_member/' . $row->id); ?>"
                                                 class="btn btn-warning btn-sm">Update</a>

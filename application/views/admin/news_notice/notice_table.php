@@ -82,7 +82,7 @@
                                 foreach ($notices as $row): ?>
                                     <tr>
                                         <td><?= $i++; ?></td>
-                                        <td><?= $row->headline; ?></td>
+                                        <td style="max-height: 100px; overflow-y: auto; white-space: normal;"><?= $row->headline; ?></td>
                                         <td style="max-height: 100px; overflow-y: auto; white-space: normal;"><?= $row->details; ?></td>
                                         <td>
                                             <img src="<?= base_url('/assets/uploads/project/notice_image/' . $row->image) ?>"
